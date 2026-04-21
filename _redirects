@@ -1,0 +1,6 @@
+# Cloudflare Pages redirect rules
+# Canonical domain: hoermaeuschen.ch
+# All other domains redirect here (configure in Cloudflare Pages custom domains)
+
+# Redirect non-www to www
+https://hoermaeuschen.ch/*    https://www.hoermaeuschen.ch/:splat    301

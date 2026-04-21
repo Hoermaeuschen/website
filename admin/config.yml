@@ -1,0 +1,132 @@
+backend:
+  name: github
+  # ACTION: Ersetze GITHUB_USERNAME und REPO_NAME mit deinen echten Werten
+  # z.B. repo: nicole-panitz/hoermaeuschen-website
+  repo: GITHUB_USERNAME/REPO_NAME
+  branch: main
+  base_url: https://www.hoermaeuschen.ch
+  auth_endpoint: /api/auth
+
+locale: de
+
+media_folder: assets/song covers
+public_folder: assets/song covers
+
+collections:
+  - name: shop
+    label: Shop & Songs
+    files:
+
+      - name: songs_data
+        label: Songs & Bundles verwalten
+        file: songs.json
+        fields:
+
+          - name: songs
+            label: Songs
+            label_singular: Song
+            widget: list
+            summary: "{{fields.title}} ({{fields.category}})"
+            fields:
+              - name: id
+                label: ID
+                widget: string
+                hint: "Eindeutige Kennung — nur Kleinbuchstaben und Bindestriche, keine Umlaute. Beispiel: mein-neuer-song"
+              - name: title
+                label: Titel
+                widget: string
+              - name: category
+                label: Kategorie
+                widget: select
+                options:
+                  - { label: "Kinderlieder",      value: "kinderlieder" }
+                  - { label: "Emotionale Lieder", value: "emotionale-lieder" }
+                  - { label: "Anlass-Lieder",     value: "anlass-lieder" }
+              - name: cover
+                label: Cover-Bild
+                widget: image
+                hint: "Quadratisches Bild empfohlen (mind. 600×600px, JPG)"
+              - name: audio
+                label: Vorschau-Audio (URL)
+                widget: string
+                required: false
+                hint: "CDN-Link zur Vorschau-MP3 auf Infomaniak Object Storage. Leer lassen bis die Datei hochgeladen ist."
+              - name: price
+                label: Preis (Anzeige auf der Website)
+                widget: string
+                default: "CHF –"
+                hint: "Beispiel: CHF 1.90"
+              - name: format
+                label: Dateiformat
+                widget: string
+                default: "MP3 320 kbps"
+              - name: featured
+                label: Im Shop anzeigen?
+                widget: boolean
+                default: true
+                hint: "Nur Songs mit aktiviertem Schalter erscheinen im Shop-Bereich."
+              - name: payhip_link
+                label: Payhip-Kauflink
+                widget: string
+                required: false
+                hint: "Link zum Payhip-Produkt nach dem Erstellen. Beispiel: https://payhip.com/b/XXXXX"
+              - name: streaming
+                label: Streaming-Links (optional)
+                widget: object
+                required: false
+                fields:
+                  - { name: spotify,      label: Spotify,       widget: string, required: false }
+                  - { name: apple,        label: Apple Music,   widget: string, required: false }
+                  - { name: youtube,      label: YouTube,       widget: string, required: false }
+                  - { name: amazon,       label: Amazon Music,  widget: string, required: false }
+                  - { name: youtubeMusic, label: YouTube Music, widget: string, required: false }
+
+          - name: bundles
+            label: Bundles
+            label_singular: Bundle
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { name: id,          label: ID,           widget: string }
+              - { name: title,       label: Titel,        widget: string }
+              - { name: description, label: Beschreibung, widget: text }
+              - name: price
+                label: Preis (Anzeige)
+                widget: string
+                default: "CHF –"
+                hint: "Beispiel: CHF 5.90"
+              - name: payhip_link
+                label: Payhip-Kauflink
+                widget: string
+                required: false
+              - name: badge
+                label: Badge-Text
+                widget: string
+                required: false
+                hint: "Wird als farbiges Label angezeigt. Beispiel: Bestseller"
+              - name: song_ids
+                label: Enthaltene Songs
+                widget: list
+                hint: "Füge die ID jedes enthaltenen Songs ein (aus dem Feld 'ID' oben bei den Songs)"
+                field: { name: song_id, label: Song-ID, widget: string }
+
+          - name: artist_streaming
+            label: Streaming-Profile (Künstler-Seiten)
+            widget: object
+            fields:
+              - { name: spotify,      label: Spotify,       widget: string, required: false }
+              - { name: youtube,      label: YouTube,       widget: string, required: false }
+              - { name: apple,        label: Apple Music,   widget: string, required: false }
+              - { name: amazon,       label: Amazon Music,  widget: string, required: false }
+              - { name: youtubeMusic, label: YouTube Music, widget: string, required: false }
+
+          - name: categories
+            label: Kategorien
+            label_singular: Kategorie
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { name: id,          label: ID,           widget: string }
+              - { name: label,       label: Bezeichnung,  widget: string }
+              - { name: description, label: Beschreibung, widget: text }

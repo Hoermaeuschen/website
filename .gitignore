@@ -1,0 +1,16 @@
+# ── Audio master files ──────────────────────────────────────────────
+# WAV files stay locally as masters — audio is served from Infomaniak CDN
+assets/songs/
+
+# ── Planning & design documents ─────────────────────────────────────
+# Obsidian vault notes — useful locally but not part of the live website
+DESIGN.md
+PROJECT_BRIEF.md
+LEGAL_TEMPLATES.md
+QUESTIONS_AND_TASKS.md
+
+# ── OS & editor artifacts ────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+*.swp

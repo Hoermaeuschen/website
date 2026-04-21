@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HörMäuschen | Musik, die Momente in Erinnerungen verwandelt</title>
+  <meta name="description" content="HörMäuschen – handgefertigte Kinderlieder, emotionale Musik und personalisierte Songs aus Buchs SG, Schweiz. Musik, die Momente in Erinnerungen verwandelt." />
+  <meta name="author" content="HörMäuschen" />
+  <link rel="canonical" href="https://www.hoermaeuschen.ch/" />
+
+  <!-- Open Graph / Social Sharing -->
+  <!-- ACTION: Erstelle assets/og-image.jpg (1200×630px) mit Logo + einem Songcover -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.hoermaeuschen.ch/" />
+  <meta property="og:title"       content="HörMäuschen | Musik, die Momente in Erinnerungen verwandelt" />
+  <meta property="og:description" content="Handgefertigte Kinderlieder und emotionale Kompositionen aus Buchs SG – für alle Kapitel des Lebens. Jetzt anhören &amp; kaufen." />
+  <meta property="og:image"       content="https://www.hoermaeuschen.ch/assets/og-image.jpg" />
+  <meta property="og:locale"      content="de_CH" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="HörMäuschen | Musik, die Momente in Erinnerungen verwandelt" />
+  <meta name="twitter:description" content="Handgefertigte Kinderlieder und emotionale Kompositionen aus Buchs SG." />
+  <meta name="twitter:image"       content="https://www.hoermaeuschen.ch/assets/og-image.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary':                 '#3ba8df',
+            'primary-dark':            '#2a8dc0',
+            'primary-light':           '#d0eef9',
+            'accent':                  '#f3a5a5',
+            'accent-dark':             '#e07a7a',
+            'on-primary':              '#ffffff',
+            'background':              '#f8f9fc',
+            'surface':                 '#ffffff',
+            'surface-container':       '#f0f4f8',
+            'surface-container-low':   '#f7f9fb',
+            'surface-container-high':  '#e5ebf1',
+            'on-surface':              '#1e2a35',
+            'text-muted':              '#9d908d',
+            'warm-taupe':              '#c0afaa',
+          },
+          fontFamily: {
+            headline: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body:     ['"Be Vietnam Pro"',    'sans-serif'],
+          },
+          borderRadius: {
+            DEFAULT: '0.75rem',
+            lg:      '1.5rem',
+            xl:      '2.5rem',
+            full:    '9999px',
+          },
+          keyframes: {
+            'spin-slow': { '0%': { transform: 'rotate(0deg)' }, '100%': { transform: 'rotate(360deg)' } },
+            'fade-up':   { '0%': { opacity: '0', transform: 'translateY(16px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+          },
+          animation: {
+            'spin-slow': 'spin-slow 8s linear infinite',
+            'fade-up':   'fade-up 0.5s ease both',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* --- Base --- */
+    body { font-family: 'Be Vietnam Pro', sans-serif; background-color: #f8f9fc; color: #1e2a35; }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+
+    /* --- Glass --- */
+    .glass-nav {
+      background: rgba(248, 249, 252, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    /* --- Hero gradient --- */
+    .hero-bg {
+      background: radial-gradient(ellipse 80% 60% at 60% 0%, rgba(59,168,223,0.08) 0%, transparent 70%),
+                  radial-gradient(ellipse 50% 40% at 20% 80%, rgba(243,165,165,0.10) 0%, transparent 60%),
+                  #f8f9fc;
+    }
+
+    /* --- Decorative dot pattern --- */
+    .dot-pattern {
+      background-image: radial-gradient(circle, rgba(59,168,223,0.12) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* --- Smooth scrollbar --- */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f0f4f8; }
+    ::-webkit-scrollbar-thumb { background: #c0afaa; border-radius: 999px; }
+
+    /* --- Custom range input --- */
+    input[type=range] { -webkit-appearance: none; appearance: none; background: transparent; cursor: pointer; }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; background: #3ba8df; border-radius: 50%; }
+
+    /* --- Floating player show/hide --- */
+    #floating-player { transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s; }
+    #floating-player.player-hidden { transform: translateY(120%); opacity: 0; pointer-events: none; }
+
+    /* --- Mobile drawer --- */
+    #mobile-drawer { transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
+
+    /* --- Section fade-in on scroll --- */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* --- Progress bar cursor --- */
+    .progress-bar { cursor: pointer; }
+  </style>
+</head>
+
+<body class="font-body antialiased">
+
+<!-- ============================================================ -->
+<!-- MOBILE DRAWER OVERLAY                                        -->
+<!-- ============================================================ -->
+<div id="drawer-overlay"
+     class="fixed inset-0 bg-on-surface/30 z-40 opacity-0 pointer-events-none transition-opacity duration-300"
+     aria-hidden="true"></div>
+
+<!-- ============================================================ -->
+<!-- MOBILE DRAWER                                                -->
+<!-- ============================================================ -->
+<div id="mobile-drawer"
+     class="fixed top-0 right-0 h-full w-72 bg-surface z-50 translate-x-full shadow-2xl flex flex-col"
+     role="navigation" aria-label="Mobile Navigation">
+
+  <div class="flex items-center justify-between px-6 py-5 border-b border-surface-container">
+    <img src="assets/Logo_definitiv.png" alt="HörMäuschen Logo" class="h-10 w-auto object-contain" />
+    <button onclick="closeMenu(document.getElementById('mobile-drawer'), document.getElementById('drawer-overlay'), document.getElementById('menu-btn'))"
+            class="w-9 h-9 rounded-full flex items-center justify-center text-text-muted hover:bg-surface-container transition-colors"
+            aria-label="Menü schliessen">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+
+  <nav class="flex flex-col gap-1 px-4 py-6 flex-1">
+    <a href="#home"         class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Home</a>
+    <a href="#songs"        class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Songs</a>
+    <a href="#shop"         class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Shop</a>
+    <a href="#personalized" class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Persönliche Lieder</a>
+    <a href="#about"        class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Über uns</a>
+    <a href="#contact"      class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Kontakt</a>
+  </nav>
+
+  <div class="px-4 pb-8">
+    <a href="#personalized"
+       class="block w-full text-center bg-primary text-on-primary px-6 py-3 rounded-full font-bold hover:bg-primary-dark transition-colors shadow-md">
+      Dein Lied anfragen
+    </a>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- NAVIGATION                                                   -->
+<!-- ============================================================ -->
+<nav class="fixed top-0 w-full z-30 glass-nav shadow-[0_4px_24px_rgba(59,168,223,0.08)]" role="navigation" aria-label="Hauptnavigation">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-3 flex items-center justify-between gap-8">
+
+    <!-- Logo -->
+    <a href="#home" class="flex-shrink-0" aria-label="HörMäuschen – Startseite">
+      <img src="assets/Logo_definitiv.png" alt="HörMäuschen Logo" class="h-14 w-auto object-contain" />
+    </a>
+
+    <!-- Desktop Links -->
+    <div class="hidden md:flex items-center gap-7">
+      <a href="#home"         data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Home</a>
+      <a href="#songs"        data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Songs</a>
+      <a href="#shop"         data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Shop</a>
+      <a href="#personalized" data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Persönliche Lieder</a>
+      <a href="#about"        data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Über uns</a>
+      <a href="#contact"      data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Kontakt</a>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <!-- CTA -->
+      <a href="#personalized"
+         class="hidden md:inline-flex items-center bg-primary text-on-primary px-5 py-2.5 rounded-full text-sm font-bold hover:bg-primary-dark hover:scale-105 transition-all duration-300 shadow-md shadow-primary/20">
+        Dein Lied anfragen
+      </a>
+      <!-- Hamburger -->
+      <button id="menu-btn"
+              class="md:hidden w-10 h-10 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors"
+              aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-drawer">
+        <span class="material-symbols-outlined text-2xl">menu</span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- HERO                                                         -->
+<!-- ============================================================ -->
+<header id="home" data-nav-section class="relative pt-28 pb-16 lg:pt-36 lg:pb-24 hero-bg overflow-hidden">
+  <!-- Dot accent -->
+  <div class="absolute top-0 right-0 w-64 h-64 dot-pattern opacity-40 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+    <!-- Left: Text -->
+    <div class="space-y-7 relative z-10">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-accent/20 text-on-surface font-bold rounded-full text-sm">
+        <span class="material-symbols-outlined text-accent-dark text-base" style="font-variation-settings:'FILL' 1">favorite</span>
+        Willkommen bei HörMäuschen
+      </span>
+
+      <h1 class="text-4xl lg:text-6xl xl:text-7xl font-extrabold font-headline text-on-surface leading-[1.1] tracking-tight">
+        Musik, die <span class="text-primary">Momente</span> in Erinnerungen&nbsp;verwandelt
+      </h1>
+
+      <p class="text-lg text-text-muted leading-relaxed max-w-md">
+        Handgefertigte Kinderlieder und emotionale Kompositionen aus Buchs SG – für alle Kapitel des Lebens.
+      </p>
+
+      <div class="flex flex-wrap gap-4 pt-2">
+        <a href="#songs"
+           class="inline-flex items-center gap-2 bg-primary text-on-primary px-7 py-4 rounded-full font-bold text-base hover:bg-primary-dark hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25">
+          <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1">headphones</span>
+          Lieder anhören
+        </a>
+        <a href="#personalized"
+           class="inline-flex items-center gap-2 bg-surface text-on-surface px-7 py-4 rounded-full font-bold text-base border border-surface-container-high hover:border-primary/30 hover:scale-105 transition-all duration-300 shadow-sm">
+          Dein persönliches Lied
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Featured cover + mini player -->
+    <div class="relative flex flex-col items-center lg:items-end gap-5">
+      <!-- Album cover -->
+      <div class="relative w-full max-w-sm lg:max-w-md aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-primary/10">
+        <img id="hero-cover"
+             src="assets/song covers/Alle meine Gefühle-Cover.jpg"
+             alt="Aktueller Song – Cover"
+             class="w-full h-full object-cover transition-opacity duration-500" />
+        <!-- Vinyl spin badge -->
+        <div class="absolute bottom-4 right-4 w-16 h-16 rounded-full bg-on-surface/80 backdrop-blur-sm flex items-center justify-center animate-spin-slow shadow-xl">
+          <div class="w-4 h-4 rounded-full bg-surface-container-low"></div>
+        </div>
+      </div>
+
+      <!-- Mini player card -->
+      <div class="glass-card w-full max-w-sm lg:max-w-md rounded-xl p-4 shadow-xl border border-primary/10">
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 bg-primary/15 rounded-full flex items-center justify-center text-primary flex-shrink-0">
+            <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1">music_note</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-[10px] font-bold text-text-muted uppercase tracking-widest mb-0.5">Jetzt läuft</p>
+            <p id="hero-song-title" class="text-sm font-bold text-on-surface truncate">Alle meine Gefühle</p>
+            <p id="hero-song-category" class="text-xs text-text-muted truncate">Emotionale Lieder</p>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <button onclick="prevTrack()" class="w-8 h-8 rounded-full flex items-center justify-center text-primary hover:bg-primary/10 transition-colors" aria-label="Vorheriger Song">
+              <span class="material-symbols-outlined text-lg">skip_previous</span>
+            </button>
+            <button onclick="togglePlay()" class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center hover:bg-primary-dark hover:scale-110 transition-all shadow-md shadow-primary/30" aria-label="Abspielen / Pausieren">
+              <span class="material-symbols-outlined text-xl main-play-icon" style="font-variation-settings:'FILL' 1">play_arrow</span>
+            </button>
+            <button onclick="nextTrack()" class="w-8 h-8 rounded-full flex items-center justify-center text-primary hover:bg-primary/10 transition-colors" aria-label="Nächster Song">
+              <span class="material-symbols-outlined text-lg">skip_next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ============================================================ -->
+<!-- STREAMING PLATFORMS BAR                                      -->
+<!-- ============================================================ -->
+<section id="streaming-bar-section" class="hidden py-8 bg-on-surface">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+    <p class="text-[11px] font-bold text-surface/40 uppercase tracking-widest mb-5">Auch erhältlich auf</p>
+    <div id="streaming-bar" class="flex flex-wrap justify-center gap-3">
+      <!-- Populated by JS from artist_streaming in songs.json -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- BRAND STATEMENT                                              -->
+<!-- ============================================================ -->
+<section class="py-20 bg-surface">
+  <div class="max-w-3xl mx-auto text-center px-6 lg:px-8 reveal">
+    <span class="material-symbols-outlined text-primary text-5xl mb-5 block" style="font-variation-settings:'FILL' 1">auto_awesome</span>
+    <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-6">Jede Geschichte verdient ihre eigene Melodie</h2>
+    <p class="text-lg text-text-muted leading-relaxed italic">
+      "Wir glauben, dass die tiefsten Emotionen nicht gesprochen werden können – sie müssen gesungen werden.
+       Wir verwandeln deine wertvollsten Momente in musikalische Erinnerungen, die ein Leben lang halten."
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SONGS                                                        -->
+<!-- ============================================================ -->
+<section id="songs" data-nav-section class="py-24 bg-background">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal">
+      <div>
+        <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-2">Unsere Lieder</h2>
+        <p class="text-text-muted">Klicke auf einen Song, um ihn direkt abzuspielen.</p>
+      </div>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="flex flex-wrap gap-2 mb-10 reveal">
+      <button onclick="filterSongs('all')" data-category="all"
+              class="filter-tab px-4 py-2 rounded-full text-sm font-semibold bg-primary text-on-primary shadow-md transition-all duration-200">
+        Alle
+      </button>
+      <button onclick="filterSongs('kinderlieder')" data-category="kinderlieder"
+              class="filter-tab px-4 py-2 rounded-full text-sm font-semibold bg-surface text-text-muted hover:text-primary border border-surface-container-high transition-all duration-200">
+        Kinderlieder
+      </button>
+      <button onclick="filterSongs('emotionale-lieder')" data-category="emotionale-lieder"
+              class="filter-tab px-4 py-2 rounded-full text-sm font-semibold bg-surface text-text-muted hover:text-primary border border-surface-container-high transition-all duration-200">
+        Emotionale Lieder
+      </button>
+      <button onclick="filterSongs('anlass-lieder')" data-category="anlass-lieder"
+              class="filter-tab px-4 py-2 rounded-full text-sm font-semibold bg-surface text-text-muted hover:text-primary border border-surface-container-high transition-all duration-200">
+        Anlass-Lieder
+      </button>
+    </div>
+
+    <!-- Song Grid (populated by JS from songs.json) -->
+    <div id="song-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+      <!-- Skeleton placeholders while loading -->
+      <div class="animate-pulse bg-surface-container rounded-xl aspect-square"></div>
+      <div class="animate-pulse bg-surface-container rounded-xl aspect-square"></div>
+      <div class="animate-pulse bg-surface-container rounded-xl aspect-square"></div>
+      <div class="animate-pulse bg-surface-container rounded-xl aspect-square"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SHOP                                                         -->
+<!-- ============================================================ -->
+<section id="shop" data-nav-section class="py-24 bg-surface">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="text-center mb-14 reveal">
+      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-3">Musik kaufen & herunterladen</h2>
+      <p class="text-text-muted max-w-xl mx-auto leading-relaxed">
+        Höre kostenlos rein – und lade deine Lieblingslieder als hochqualitative Audiodatei herunter. Sicher bezahlen via Stripe, sofortiger Download.
+      </p>
+    </div>
+
+    <!-- Individual songs (compact buy cards) -->
+    <div id="shop-song-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16 reveal">
+      <!-- Populated by JS from songs.json -->
+      <div class="animate-pulse bg-surface-container rounded-xl h-40"></div>
+      <div class="animate-pulse bg-surface-container rounded-xl h-40"></div>
+      <div class="animate-pulse bg-surface-container rounded-xl h-40"></div>
+      <div class="animate-pulse bg-surface-container rounded-xl h-40"></div>
+    </div>
+
+    <!-- Bundles -->
+    <div class="reveal">
+      <h3 class="text-2xl font-bold font-headline text-on-surface mb-8 text-center">Bundles</h3>
+      <div id="bundles-grid" class="space-y-6">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- Trust bar -->
+    <div class="mt-14 flex flex-wrap justify-center gap-8 text-sm text-text-muted reveal">
+      <span class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1">lock</span>
+        Sicher via Stripe
+      </span>
+      <span class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1">download</span>
+        Sofort-Download nach Kauf
+      </span>
+      <span class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1">high_quality</span>
+        Hochqualitative Audiodatei
+      </span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PERSONALIZED SONG                                            -->
+<!-- ============================================================ -->
+<section id="personalized" data-nav-section class="py-24 bg-surface-container-low">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="bg-surface rounded-2xl overflow-hidden flex flex-col lg:flex-row shadow-xl border border-primary/10 reveal">
+
+      <!-- Text -->
+      <div class="lg:w-1/2 p-10 lg:p-16 space-y-7">
+        <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-surface leading-tight">
+          Ein Lied so einzigartig wie deine Geschichte
+        </h2>
+        <p class="text-lg text-text-muted leading-relaxed">
+          Stell dir ein Geschenk vor, das niemals verblasst – eine maßgeschneiderte Komposition,
+          die exklusiv für einen geliebten Menschen geschrieben und aufgenommen wurde.
+        </p>
+        <ul class="space-y-4">
+          <li class="flex items-center gap-4">
+            <span class="w-8 h-8 rounded-full bg-accent/25 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-accent-dark text-sm" style="font-variation-settings:'FILL' 1">check</span>
+            </span>
+            <span class="font-medium text-on-surface">Individuelle Texte, basierend auf deinen persönlichen Anekdoten</span>
+          </li>
+          <li class="flex items-center gap-4">
+            <span class="w-8 h-8 rounded-full bg-accent/25 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-accent-dark text-sm" style="font-variation-settings:'FILL' 1">check</span>
+            </span>
+            <span class="font-medium text-on-surface">Professionelle Studioproduktion & emotionale Erzählweise</span>
+          </li>
+          <li class="flex items-center gap-4">
+            <span class="w-8 h-8 rounded-full bg-accent/25 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-accent-dark text-sm" style="font-variation-settings:'FILL' 1">check</span>
+            </span>
+            <span class="font-medium text-on-surface">Digitale Lieferung – das perfekte Geschenk für jeden Anlass</span>
+          </li>
+        </ul>
+        <a href="#contact"
+           class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-dark hover:scale-105 transition-all shadow-lg shadow-primary/25">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">edit_note</span>
+          Dein Lied anfragen
+        </a>
+      </div>
+
+      <!-- Visual: rotating cover collage -->
+      <div class="lg:w-1/2 bg-gradient-to-br from-primary/5 to-accent/10 min-h-[320px] lg:min-h-0 flex items-center justify-center p-10 relative overflow-hidden">
+        <div class="relative w-56 h-56">
+          <!-- Stacked covers -->
+          <img src="assets/song covers/So wie du bist-Cover.jpg"        alt="" class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-2xl rotate-[-6deg] opacity-60" aria-hidden="true" />
+          <img src="assets/song covers/Der Traumzug-Cover.jpg"          alt="" class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-2xl rotate-[3deg] opacity-80" aria-hidden="true" />
+          <img src="assets/song covers/Alle meine Gefühle-Cover.jpg"    alt="" class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-2xl" aria-hidden="true" />
+        </div>
+        <!-- Floating note badge -->
+        <div class="absolute top-8 right-8 w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-xl shadow-primary/30">
+          <span class="material-symbols-outlined text-on-primary text-2xl" style="font-variation-settings:'FILL' 1">music_note</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- HOW IT WORKS                                                 -->
+<!-- ============================================================ -->
+<section class="py-24 bg-background">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface">Der Weg zu deiner Melodie</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative reveal">
+
+      <!-- Connector line (desktop) -->
+      <div class="hidden md:block absolute top-10 left-[calc(16.6%+2.5rem)] right-[calc(16.6%+2.5rem)] h-px bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20"></div>
+
+      <!-- Step 1 -->
+      <div class="flex flex-col items-center text-center space-y-5">
+        <div class="relative w-20 h-20 bg-surface rounded-full flex items-center justify-center border-2 border-primary/20 shadow-[0_8px_24px_rgba(59,168,223,0.1)]">
+          <span class="material-symbols-outlined text-primary text-4xl">chat_bubble</span>
+          <span class="absolute -top-2 -right-2 w-7 h-7 bg-accent text-on-surface rounded-full flex items-center justify-center font-bold text-sm shadow-sm">1</span>
+        </div>
+        <h3 class="text-xl font-bold font-headline text-on-surface">Erzähl deine Geschichte</h3>
+        <p class="text-text-muted text-sm leading-relaxed">Teile deine Erinnerungen, Namen und Emotionen über das Kontaktformular – ganz einfach und persönlich.</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex flex-col items-center text-center space-y-5">
+        <div class="relative w-20 h-20 bg-surface rounded-full flex items-center justify-center border-2 border-primary/20 shadow-[0_8px_24px_rgba(59,168,223,0.1)]">
+          <span class="material-symbols-outlined text-primary text-4xl">edit_note</span>
+          <span class="absolute -top-2 -right-2 w-7 h-7 bg-accent text-on-surface rounded-full flex items-center justify-center font-bold text-sm shadow-sm">2</span>
+        </div>
+        <h3 class="text-xl font-bold font-headline text-on-surface">Ich erstelle dein Lied</h3>
+        <p class="text-text-muted text-sm leading-relaxed">Deine Worte werden im Studio zur Melodie – mit handwerklicher Sorgfalt und emotionaler Tiefe.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex flex-col items-center text-center space-y-5">
+        <div class="relative w-20 h-20 bg-surface rounded-full flex items-center justify-center border-2 border-primary/20 shadow-[0_8px_24px_rgba(59,168,223,0.1)]">
+          <span class="material-symbols-outlined text-primary text-4xl">headset</span>
+          <span class="absolute -top-2 -right-2 w-7 h-7 bg-accent text-on-surface rounded-full flex items-center justify-center font-bold text-sm shadow-sm">3</span>
+        </div>
+        <h3 class="text-xl font-bold font-headline text-on-surface">Du erhältst deine Musik</h3>
+        <p class="text-text-muted text-sm leading-relaxed">Innerhalb von 14 Tagen erhältst du deinen hochwertigen digitalen Song – bereit zum Teilen und Genießen.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ABOUT                                                        -->
+<!-- ============================================================ -->
+<section id="about" data-nav-section class="py-24 bg-surface">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+    <!-- Cover collage -->
+    <div class="order-2 lg:order-1 reveal">
+      <div class="grid grid-cols-2 gap-4">
+        <img src="assets/song covers/Heut ist ein guter Tag-Cover.jpg"
+             alt="Heut ist ein guter Tag – Cover"
+             class="rounded-xl shadow-lg aspect-square object-cover" />
+        <img src="assets/song covers/So wie du bist-Cover.jpg"
+             alt="So wie du bist – Cover"
+             class="rounded-xl shadow-lg aspect-square object-cover mt-8" />
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="space-y-7 order-1 lg:order-2 reveal">
+      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface leading-tight">
+        Vom leisen Flüstern zur Symphonie der Herzen
+      </h2>
+      <p class="text-lg text-text-muted leading-relaxed">
+        HörMäuschen begann als persönliches Projekt: sanfte Schlaflieder für meine eigenen Kinder. Was als Herzensangelegenheit begann, fand bald grossen Anklang und entwickelte sich zu einem Ort für emotionale Musik für alle Altersgruppen.
+      </p>
+      <p class="text-lg text-text-muted leading-relaxed">
+        Heute verbinde ich musikalische Handwerkskunst mit einem tiefen Gespür für das menschliche Erleben. Ob das Kichern eines Kleinkindes oder die Tränen einer Braut – jedes Gefühl verdient seine eigene Melodie.
+      </p>
+      <div class="flex items-center gap-4 pt-2">
+        <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings:'FILL' 1">location_on</span>
+        <div>
+          <p class="font-bold text-on-surface">Buchs SG, Schweiz</p>
+          <p class="text-sm text-text-muted">Handgefertigte Melodien seit Tag 1</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CONTACT                                                      -->
+<!-- ============================================================ -->
+<section id="contact" data-nav-section class="py-24 bg-surface-container-low">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row gap-16">
+
+      <!-- Left info -->
+      <div class="lg:w-1/3 reveal">
+        <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-5 leading-tight">
+          Lass uns gemeinsam etwas Schönes erschaffen
+        </h2>
+        <p class="text-text-muted mb-10 leading-relaxed">
+          Hast du eine Idee oder eine Geschichte, die in Musik erzählt werden soll? Schreib mir – ich freue mich von dir zu hören.
+        </p>
+        <div class="space-y-5">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-primary shadow-sm border border-surface-container-high flex-shrink-0">
+              <span class="material-symbols-outlined text-lg">mail</span>
+            </div>
+            <a href="mailto:info@hoermaeuschen.ch" class="font-medium text-on-surface hover:text-primary transition-colors">
+              info@hoermaeuschen.ch
+            </a>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-primary shadow-sm border border-surface-container-high flex-shrink-0">
+              <span class="material-symbols-outlined text-lg">location_on</span>
+            </div>
+            <span class="font-medium text-on-surface">Buchs SG, Schweiz</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right form -->
+      <div class="lg:w-2/3 bg-surface p-8 lg:p-12 rounded-2xl shadow-xl border border-surface-container-high reveal">
+        <!-- ACTION: Replace YOUR_FORMSPREE_ID with your actual Formspree form ID from formspree.io -->
+        <form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="space-y-6">
+          <input type="hidden" name="_language" value="de" />
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-1.5">
+              <label for="name" class="text-xs font-bold text-text-muted uppercase tracking-wider">Name</label>
+              <input id="name" name="name" type="text" required
+                     placeholder="Dein Name"
+                     class="w-full bg-surface-container-low border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface outline-none transition-all text-on-surface placeholder:text-text-muted/60" />
+            </div>
+            <div class="space-y-1.5">
+              <label for="email" class="text-xs font-bold text-text-muted uppercase tracking-wider">E-Mail</label>
+              <input id="email" name="email" type="email" required
+                     placeholder="deine@email.ch"
+                     class="w-full bg-surface-container-low border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface outline-none transition-all text-on-surface placeholder:text-text-muted/60" />
+            </div>
+          </div>
+
+          <div class="space-y-1.5">
+            <label for="betreff" class="text-xs font-bold text-text-muted uppercase tracking-wider">Betreff</label>
+            <select id="betreff" name="betreff"
+                    class="w-full bg-surface-container-low border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface outline-none transition-all text-on-surface">
+              <option>Anfrage für ein persönliches Lied</option>
+              <option>Allgemeines Feedback</option>
+              <option>Presse &amp; Kooperationen</option>
+              <option>Sonstiges</option>
+            </select>
+          </div>
+
+          <div class="space-y-1.5">
+            <label for="nachricht" class="text-xs font-bold text-text-muted uppercase tracking-wider">Nachricht</label>
+            <textarea id="nachricht" name="nachricht" rows="5" required
+                      placeholder="Erzähl mir von dem Moment, den du festhalten möchtest…"
+                      class="w-full bg-surface-container-low border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface outline-none transition-all text-on-surface placeholder:text-text-muted/60 resize-none"></textarea>
+          </div>
+
+          <button type="submit"
+                  class="w-full bg-primary text-on-primary py-4 rounded-full font-bold text-lg hover:bg-primary-dark hover:scale-[1.02] transition-all shadow-lg shadow-primary/25 flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined">send</span>
+            Nachricht senden
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FOOTER                                                       -->
+<!-- ============================================================ -->
+<footer class="bg-on-surface text-surface/70 pt-16 pb-10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="flex flex-col lg:flex-row gap-12 mb-12">
+
+      <!-- Brand -->
+      <div class="lg:w-1/3 space-y-4">
+        <img src="assets/Logo_definitiv.png" alt="HörMäuschen Logo" class="h-12 w-auto object-contain brightness-[10]" />
+        <p class="text-sm leading-relaxed max-w-xs">
+          Handgefertigte Melodien für alle Kapitel des Lebens. Musik, die bleibt.
+        </p>
+        <p class="text-xs text-surface/40 mt-2">Buchs SG, Schweiz</p>
+      </div>
+
+      <!-- Links -->
+      <div class="flex-1 grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
+        <div>
+          <p class="font-bold text-surface/40 uppercase tracking-widest text-xs mb-4">Navigation</p>
+          <ul class="space-y-2.5">
+            <li><a href="#home"         class="hover:text-surface transition-colors">Home</a></li>
+            <li><a href="#songs"        class="hover:text-surface transition-colors">Songs</a></li>
+            <li><a href="#shop"         class="hover:text-surface transition-colors">Shop</a></li>
+            <li><a href="#personalized" class="hover:text-surface transition-colors">Persönliche Lieder</a></li>
+            <li><a href="#about"        class="hover:text-surface transition-colors">Über uns</a></li>
+            <li><a href="#contact"      class="hover:text-surface transition-colors">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-bold text-surface/40 uppercase tracking-widest text-xs mb-4">Rechtliches</p>
+          <ul class="space-y-2.5">
+            <li><a href="impressum.html"   class="hover:text-surface transition-colors">Impressum</a></li>
+            <li><a href="datenschutz.html" class="hover:text-surface transition-colors">Datenschutz</a></li>
+            <li><a href="agb.html"         class="hover:text-surface transition-colors">AGB</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-bold text-surface/40 uppercase tracking-widest text-xs mb-4">Musik hören</p>
+          <ul class="space-y-2.5" id="footer-streaming-links">
+            <!-- Streaming links populated here — add URLs to songs.json and update these hrefs -->
+            <li><a href="#" class="hover:text-surface transition-colors">Spotify</a></li>
+            <li><a href="#" class="hover:text-surface transition-colors">YouTube</a></li>
+            <li><a href="#" class="hover:text-surface transition-colors">Apple Music</a></li>
+            <li><a href="#" class="hover:text-surface transition-colors">Amazon Music</a></li>
+            <li><a href="#" class="hover:text-surface transition-colors">YouTube Music</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="border-t border-surface/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-surface/40">
+      <p>© 2026 HörMäuschen. Alle Rechte vorbehalten. Sämtliche Audioinhalte, Bilder und Texte sind urheberrechtlich geschützt.</p>
+      <div class="flex items-center gap-2 text-primary/60">
+        <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">favorite</span>
+        <span class="uppercase tracking-[0.2em] font-bold">Handgefertigte Melodien</span>
+        <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">favorite</span>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ============================================================ -->
+<!-- FLOATING AUDIO PLAYER                                        -->
+<!-- ============================================================ -->
+<div id="floating-player" class="fixed bottom-6 right-4 lg:right-8 z-50 w-[calc(100vw-2rem)] max-w-xs lg:max-w-sm" role="region" aria-label="Musik-Player">
+  <div class="glass-card rounded-2xl p-4 shadow-2xl border border-primary/15">
+
+    <!-- Song info row -->
+    <div class="flex items-center gap-3 mb-3">
+      <div class="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 shadow-md border border-primary/10">
+        <img id="fp-cover"
+             src="assets/song covers/Alle meine Gefühle-Cover.jpg"
+             alt="Song Cover"
+             class="w-full h-full object-cover" />
+      </div>
+      <div class="flex-1 min-w-0">
+        <p id="fp-title"    class="text-sm font-bold text-on-surface truncate leading-tight">Alle meine Gefühle</p>
+        <p id="fp-category" class="text-[11px] text-text-muted font-medium uppercase tracking-wide">Emotionale Lieder</p>
+      </div>
+      <button onclick="document.getElementById('floating-player').classList.toggle('player-hidden')"
+              class="w-7 h-7 rounded-full flex items-center justify-center text-text-muted hover:text-on-surface hover:bg-surface-container transition-colors flex-shrink-0"
+              aria-label="Player minimieren">
+        <span class="material-symbols-outlined text-base">keyboard_arrow_down</span>
+      </button>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-bar relative h-1.5 w-full bg-primary/10 rounded-full mb-2 overflow-hidden" role="slider" aria-label="Fortschritt">
+      <div class="progress-fill absolute top-0 left-0 h-full bg-primary rounded-full transition-none pointer-events-none" style="width:0%"></div>
+    </div>
+
+    <!-- Time -->
+    <div class="flex justify-between text-[10px] text-text-muted font-medium mb-3 px-0.5">
+      <span id="player-current-time">0:00</span>
+      <span id="player-duration">0:00</span>
+    </div>
+
+    <!-- Controls -->
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-1">
+        <button onclick="prevTrack()" class="w-9 h-9 rounded-full flex items-center justify-center text-primary hover:bg-primary/8 transition-colors" aria-label="Vorheriger Song">
+          <span class="material-symbols-outlined text-lg">skip_previous</span>
+        </button>
+        <button onclick="togglePlay()" class="w-11 h-11 bg-primary text-on-primary rounded-xl flex items-center justify-center hover:bg-primary-dark hover:scale-105 transition-all shadow-lg shadow-primary/30" aria-label="Abspielen / Pausieren">
+          <span class="material-symbols-outlined text-xl main-play-icon" style="font-variation-settings:'FILL' 1">play_arrow</span>
+        </button>
+        <button onclick="nextTrack()" class="w-9 h-9 rounded-full flex items-center justify-center text-primary hover:bg-primary/8 transition-colors" aria-label="Nächster Song">
+          <span class="material-symbols-outlined text-lg">skip_next</span>
+        </button>
+      </div>
+      <div class="flex items-center gap-1">
+        <span class="material-symbols-outlined text-text-muted text-base">volume_up</span>
+        <input type="range" min="0" max="1" step="0.05" value="1"
+               class="w-16 h-1 accent-primary"
+               aria-label="Lautstärke"
+               oninput="audio.volume = this.value" />
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SCRIPTS                                                      -->
+<!-- ============================================================ -->
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
+</script>
+<script src="js/main.js"></script>
+
+<!-- Cloudflare Web Analytics — ACTION: replace YOUR_TOKEN with token from Cloudflare Dashboard → Analytics → Web Analytics -->
+<!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_TOKEN"}'></script> -->
+</body>
+</html>
