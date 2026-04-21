@@ -2,7 +2,7 @@ backend:
   name: github
   # ACTION: Ersetze GITHUB_USERNAME und REPO_NAME mit deinen echten Werten
   # z.B. repo: nicole-panitz/hoermaeuschen-website
-  repo: GITHUB_USERNAME/REPO_NAME
+  repo: Hoermaeuschen/website
   branch: main
   base_url: https://www.hoermaeuschen.ch
   auth_endpoint: /api/auth
