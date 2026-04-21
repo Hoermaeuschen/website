@@ -1,6 +1,5 @@
-# Cloudflare Pages redirect rules
-# Canonical domain: hoermaeuschen.ch
-# All other domains redirect here (configure in Cloudflare Pages custom domains)
-
-# Redirect non-www to www
-https://hoermaeuschen.ch/*    https://www.hoermaeuschen.ch/:splat    301
+# Domain redirects (non-www → www, .de/.li/.at → .ch) are handled via
+# Cloudflare Pages → Custom Domains settings — not needed here.
+#
+# Add path-based redirects below if needed in the future, e.g.:
+# /old-page    /new-page    301
