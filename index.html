@@ -3,22 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HörMäuschen | Musik, die Momente in Erinnerungen verwandelt</title>
-  <meta name="description" content="HörMäuschen – handgefertigte Kinderlieder, emotionale Musik und personalisierte Songs aus Buchs SG, Schweiz. Musik, die Momente in Erinnerungen verwandelt." />
+  <title>HörMäuschen | Individuelle Lieder für besondere Menschen</title>
+  <meta name="description" content="HörMäuschen – persönliche, handgefertigte Lieder für besondere Momente. Ich verwandle deine Geschichte in ein einzigartiges Lied. Ab 149 CHF." />
   <meta name="author" content="HörMäuschen" />
   <link rel="canonical" href="https://www.hoermaeuschen.ch/" />
 
   <!-- Open Graph / Social Sharing -->
-  <!-- ACTION: Erstelle assets/og-image.jpg (1200×630px) mit Logo + einem Songcover -->
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://www.hoermaeuschen.ch/" />
-  <meta property="og:title"       content="HörMäuschen | Musik, die Momente in Erinnerungen verwandelt" />
-  <meta property="og:description" content="Handgefertigte Kinderlieder und emotionale Kompositionen aus Buchs SG – für alle Kapitel des Lebens. Jetzt anhören &amp; kaufen." />
+  <meta property="og:title"       content="HörMäuschen | Individuelle Lieder für besondere Menschen" />
+  <meta property="og:description" content="Persönlich, emotional und einzigartig – ich verwandle deine Geschichte in ein Lied, das berührt. Ab 149 CHF." />
   <meta property="og:image"       content="https://www.hoermaeuschen.ch/assets/og-image.jpg" />
   <meta property="og:locale"      content="de_CH" />
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="HörMäuschen | Musik, die Momente in Erinnerungen verwandelt" />
-  <meta name="twitter:description" content="Handgefertigte Kinderlieder und emotionale Kompositionen aus Buchs SG." />
+  <meta name="twitter:title"       content="HörMäuschen | Individuelle Lieder für besondere Menschen" />
+  <meta name="twitter:description" content="Persönlich, emotional und einzigartig – ich verwandle deine Geschichte in ein Lied, das berührt." />
   <meta name="twitter:image"       content="https://www.hoermaeuschen.ch/assets/og-image.jpg" />
 
   <!-- Fonts -->
@@ -60,12 +59,10 @@
             full:    '9999px',
           },
           keyframes: {
-            'spin-slow': { '0%': { transform: 'rotate(0deg)' }, '100%': { transform: 'rotate(360deg)' } },
-            'fade-up':   { '0%': { opacity: '0', transform: 'translateY(16px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            'fade-up': { '0%': { opacity: '0', transform: 'translateY(16px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
           },
           animation: {
-            'spin-slow': 'spin-slow 8s linear infinite',
-            'fade-up':   'fade-up 0.5s ease both',
+            'fade-up': 'fade-up 0.5s ease both',
           },
         },
       },
@@ -87,11 +84,6 @@
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
     }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-    }
 
     /* --- Hero gradient --- */
     .hero-bg {
@@ -111,23 +103,27 @@
     ::-webkit-scrollbar-track { background: #f0f4f8; }
     ::-webkit-scrollbar-thumb { background: #c0afaa; border-radius: 999px; }
 
-    /* --- Custom range input --- */
-    input[type=range] { -webkit-appearance: none; appearance: none; background: transparent; cursor: pointer; }
-    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; background: #3ba8df; border-radius: 50%; }
-
-    /* --- Floating player show/hide --- */
-    #floating-player { transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s; }
-    #floating-player.player-hidden { transform: translateY(120%); opacity: 0; pointer-events: none; }
-
-    /* --- Mobile drawer --- */
-    #mobile-drawer { transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
-
     /* --- Section fade-in on scroll --- */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* --- Progress bar cursor --- */
-    .progress-bar { cursor: pointer; }
+    /* --- Mobile drawer --- */
+    #mobile-drawer { transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
+
+    /* --- Mood checkboxes --- */
+    .mood-checkbox input[type="checkbox"] { display: none; }
+    .mood-checkbox label {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1rem; border-radius: 9999px; cursor: pointer; font-size: 0.875rem; font-weight: 600;
+      border: 1.5px solid #e5ebf1; background: #f7f9fb; color: #9d908d;
+      transition: all 0.2s;
+    }
+    .mood-checkbox input[type="checkbox"]:checked + label {
+      background: #d0eef9; border-color: #3ba8df; color: #1e2a35;
+    }
+
+    /* --- FAQ --- */
+    .faq-answer { transition: all 0.2s ease; }
   </style>
 </head>
 
@@ -157,18 +153,18 @@
   </div>
 
   <nav class="flex flex-col gap-1 px-4 py-6 flex-1">
-    <a href="#home"         class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Home</a>
-    <a href="#songs"        class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Songs</a>
-    <a href="#shop"         class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Shop</a>
-    <a href="#personalized" class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Persönliche Lieder</a>
-    <a href="#about"        class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Über uns</a>
-    <a href="#contact"      class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Kontakt</a>
+    <a href="#home"                 class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Home</a>
+    <a href="#hoerprobe"            class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Hörprobe</a>
+    <a href="#angebot"              class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Mein Angebot</a>
+    <a href="#wie-es-funktioniert"  class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">So funktioniert's</a>
+    <a href="#ueber-mich"           class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Über mich</a>
+    <a href="#anfragen"             class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Lied anfragen</a>
   </nav>
 
   <div class="px-4 pb-8">
-    <a href="#personalized"
+    <a href="#anfragen"
        class="block w-full text-center bg-primary text-on-primary px-6 py-3 rounded-full font-bold hover:bg-primary-dark transition-colors shadow-md">
-      Dein Lied anfragen
+      Jetzt Lied anfragen
     </a>
   </div>
 </div>
@@ -186,19 +182,18 @@
 
     <!-- Desktop Links -->
     <div class="hidden md:flex items-center gap-7">
-      <a href="#home"         data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Home</a>
-      <a href="#songs"        data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Songs</a>
-      <a href="#shop"         data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Shop</a>
-      <a href="#personalized" data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Persönliche Lieder</a>
-      <a href="#about"        data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Über uns</a>
-      <a href="#contact"      data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Kontakt</a>
+      <a href="#home"                data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Home</a>
+      <a href="#hoerprobe"           data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Hörprobe</a>
+      <a href="#angebot"             data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Mein Angebot</a>
+      <a href="#wie-es-funktioniert" data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">So funktioniert's</a>
+      <a href="#ueber-mich"          data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Über mich</a>
     </div>
 
     <div class="flex items-center gap-3">
       <!-- CTA -->
-      <a href="#personalized"
+      <a href="#anfragen"
          class="hidden md:inline-flex items-center bg-primary text-on-primary px-5 py-2.5 rounded-full text-sm font-bold hover:bg-primary-dark hover:scale-105 transition-all duration-300 shadow-md shadow-primary/20">
-        Dein Lied anfragen
+        Jetzt Lied anfragen
       </a>
       <!-- Hamburger -->
       <button id="menu-btn"
@@ -221,71 +216,39 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
     <!-- Left: Text -->
-    <div class="space-y-7 relative z-10">
+    <div class="space-y-6 relative z-10">
       <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-accent/20 text-on-surface font-bold rounded-full text-sm">
         <span class="material-symbols-outlined text-accent-dark text-base" style="font-variation-settings:'FILL' 1">favorite</span>
         Willkommen bei HörMäuschen
       </span>
 
-      <h1 class="text-4xl lg:text-6xl xl:text-7xl font-extrabold font-headline text-on-surface leading-[1.1] tracking-tight">
-        Musik, die <span class="text-primary">Momente</span> in Erinnerungen verwandelt
+      <h1 class="text-4xl lg:text-5xl xl:text-6xl font-extrabold font-headline text-on-surface leading-[1.1] tracking-tight">
+        Individuelle Lieder für <span class="text-primary">besondere</span> Menschen
       </h1>
 
       <p class="text-lg text-text-muted leading-relaxed max-w-md">
-        Handgefertigte Kinderlieder und emotionale Kompositionen aus Buchs SG – für alle Kapitel des Lebens.
+        Persönlich, emotional und einzigartig – ich verwandle deine Geschichte in ein Lied, das berührt.
+      </p>
+      <p class="text-base text-text-muted leading-relaxed max-w-md">
+        Ob für Kinder, Partner, Familie oder als ganz besondere Überraschung – jedes Lied ist ein echtes Unikat.
       </p>
 
       <div class="flex flex-wrap gap-4 pt-2">
-        <a href="#songs"
+        <a href="#anfragen"
            class="inline-flex items-center gap-2 bg-primary text-on-primary px-7 py-4 rounded-full font-bold text-base hover:bg-primary-dark hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25">
-          <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1">headphones</span>
-          Lieder anhören
+          Jetzt Lied anfragen
         </a>
-        <a href="#personalized"
-           class="inline-flex items-center gap-2 bg-surface text-on-surface px-7 py-4 rounded-full font-bold text-base border border-surface-container-high hover:border-primary/30 hover:scale-105 transition-all duration-300 shadow-sm">
-          Dein persönliches Lied
-        </a>
+        <span class="inline-flex items-center gap-2 bg-surface border border-surface-container-high text-on-surface px-7 py-4 rounded-full font-bold text-base shadow-sm">
+          💛 ab 149 CHF
+        </span>
       </div>
     </div>
 
-    <!-- Right: Featured cover + mini player -->
-    <div class="relative flex flex-col items-center lg:items-end gap-5">
-      <!-- Album cover -->
-      <div class="relative w-full max-w-sm lg:max-w-md aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-primary/10">
-        <img id="hero-cover"
-             src="assets/song covers/Alle meine Gefühle-Cover.jpg"
-             alt="Aktueller Song – Cover"
-             class="w-full h-full object-cover transition-opacity duration-500" />
-        <!-- Vinyl spin badge -->
-        <div class="absolute bottom-4 right-4 w-16 h-16 rounded-full bg-on-surface/80 backdrop-blur-sm flex items-center justify-center animate-spin-slow shadow-xl">
-          <div class="w-4 h-4 rounded-full bg-surface-container-low"></div>
-        </div>
-      </div>
-
-      <!-- Mini player card -->
-      <div class="glass-card w-full max-w-sm lg:max-w-md rounded-xl p-4 shadow-xl border border-primary/10">
-        <div class="flex items-center gap-4">
-          <div class="w-10 h-10 bg-primary/15 rounded-full flex items-center justify-center text-primary flex-shrink-0">
-            <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1">music_note</span>
-          </div>
-          <div class="flex-1 min-w-0">
-            <p class="text-[10px] font-bold text-text-muted uppercase tracking-widest mb-0.5">Jetzt läuft</p>
-            <p id="hero-song-title" class="text-sm font-bold text-on-surface truncate">Alle meine Gefühle</p>
-            <p id="hero-song-category" class="text-xs text-text-muted truncate">Emotionale Lieder</p>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <button onclick="prevTrack()" class="w-8 h-8 rounded-full flex items-center justify-center text-primary hover:bg-primary/10 transition-colors" aria-label="Vorheriger Song">
-              <span class="material-symbols-outlined text-lg">skip_previous</span>
-            </button>
-            <button onclick="togglePlay()" class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center hover:bg-primary-dark hover:scale-110 transition-all shadow-md shadow-primary/30" aria-label="Abspielen / Pausieren">
-              <span class="material-symbols-outlined text-xl main-play-icon" style="font-variation-settings:'FILL' 1">play_arrow</span>
-            </button>
-            <button onclick="nextTrack()" class="w-8 h-8 rounded-full flex items-center justify-center text-primary hover:bg-primary/10 transition-colors" aria-label="Nächster Song">
-              <span class="material-symbols-outlined text-lg">skip_next</span>
-            </button>
-          </div>
-        </div>
-      </div>
+    <!-- Right: Banner image -->
+    <div class="flex items-center justify-center lg:justify-end">
+      <img src="assets/banner.png"
+           alt="HörMäuschen – Persönliche Lieder"
+           class="w-full max-w-md lg:max-w-lg rounded-2xl shadow-2xl object-cover" />
     </div>
 
   </div>
@@ -298,192 +261,159 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
     <p class="text-[11px] font-bold text-surface/40 uppercase tracking-widest mb-5">Auch erhältlich auf</p>
     <div id="streaming-bar" class="flex flex-wrap justify-center gap-3">
-      <!-- Populated by JS from artist_streaming in songs.json -->
+      <!-- Populated by JS from songs.json → artist_streaming -->
     </div>
   </div>
 </section>
 
 <!-- ============================================================ -->
-<!-- BRAND STATEMENT                                              -->
+<!-- HÖRPROBE                                                     -->
 <!-- ============================================================ -->
-<section class="py-20 bg-surface">
+<section id="hoerprobe" data-nav-section class="py-24 bg-background">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="text-center mb-4 reveal">
+      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-3">
+        🎧 Hör dir meine Lieder an
+      </h2>
+      <p class="text-text-muted max-w-xl mx-auto leading-relaxed">
+        Ein kleiner Einblick in meine Musik 💛
+      </p>
+      <p class="text-text-muted max-w-xl mx-auto leading-relaxed">
+        Von fröhlichen Kinderliedern bis zu gefühlvollen Songs – jedes Lied entsteht mit viel Herz und Gefühl.
+      </p>
+    </div>
+
+    <!-- YouTube videos — managed via CMS in songs.json → youtube_videos -->
+    <div id="youtube-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10 reveal">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <div class="bg-surface border border-primary/10 rounded-xl px-8 py-6 shadow-sm">
+        <p class="text-text-muted leading-relaxed italic">
+          Diese Lieder geben dir einen Eindruck von meinem Stil.
+        </p>
+        <p class="text-text-muted leading-relaxed italic">
+          Dein persönliches Lied wird individuell für dich erschaffen.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- MEHR ALS NUR EIN LIED                                        -->
+<!-- ============================================================ -->
+<section class="py-24 bg-surface">
   <div class="max-w-3xl mx-auto text-center px-6 lg:px-8 reveal">
     <span class="material-symbols-outlined text-primary text-5xl mb-5 block" style="font-variation-settings:'FILL' 1">auto_awesome</span>
-    <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-6">Jede Geschichte verdient ihre eigene Melodie</h2>
-    <p class="text-lg text-text-muted leading-relaxed italic">
-      "Wir glauben, dass die tiefsten Emotionen nicht gesprochen werden können – sie müssen gesungen werden.
-       Wir verwandeln deine wertvollsten Momente in musikalische Erinnerungen, die ein Leben lang halten."
+    <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-6">✨ Mehr als nur ein Lied</h2>
+    <p class="text-lg text-text-muted leading-relaxed mb-4">
+      Ein persönliches Lied ist mehr als nur Musik.
+    </p>
+    <p class="text-lg text-text-muted leading-relaxed mb-4">
+      Es hält Erinnerungen fest, macht Gefühle hörbar und schafft etwas, das bleibt.
+    </p>
+    <p class="text-lg text-text-muted leading-relaxed">
+      Etwas, das man immer wieder hören kann und jedes Mal aufs Neue spürt. ✨
     </p>
   </div>
 </section>
 
 <!-- ============================================================ -->
-<!-- SONGS                                                        -->
+<!-- MEIN ANGEBOT — DEIN PERSÖNLICHES LIED                       -->
 <!-- ============================================================ -->
-<section id="songs" data-nav-section class="py-24 bg-background">
+<section id="angebot" data-nav-section class="py-24 bg-surface-container-low">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal">
-      <div>
-        <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-2">Unsere Lieder</h2>
-        <p class="text-text-muted">Klicke auf einen Song, um ihn direkt abzuspielen.</p>
-      </div>
-    </div>
-
-    <!-- Category Filter Tabs -->
-    <div class="flex flex-wrap gap-2 mb-10 reveal">
-      <button onclick="filterSongs('all')" data-category="all"
-              class="filter-tab px-4 py-2 rounded-full text-sm font-semibold bg-primary text-on-primary shadow-md transition-all duration-200">
-        Alle
-      </button>
-      <button onclick="filterSongs('kinderlieder')" data-category="kinderlieder"
-              class="filter-tab px-4 py-2 rounded-full text-sm font-semibold bg-surface text-text-muted hover:text-primary border border-surface-container-high transition-all duration-200">
-        Kinderlieder
-      </button>
-      <button onclick="filterSongs('emotionale-lieder')" data-category="emotionale-lieder"
-              class="filter-tab px-4 py-2 rounded-full text-sm font-semibold bg-surface text-text-muted hover:text-primary border border-surface-container-high transition-all duration-200">
-        Emotionale Lieder
-      </button>
-      <button onclick="filterSongs('anlass-lieder')" data-category="anlass-lieder"
-              class="filter-tab px-4 py-2 rounded-full text-sm font-semibold bg-surface text-text-muted hover:text-primary border border-surface-container-high transition-all duration-200">
-        Anlass-Lieder
-      </button>
-    </div>
-
-    <!-- Song Grid (populated by JS from songs.json) -->
-    <div id="song-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
-      <!-- Skeleton placeholders while loading -->
-      <div class="animate-pulse bg-surface-container rounded-xl aspect-square"></div>
-      <div class="animate-pulse bg-surface-container rounded-xl aspect-square"></div>
-      <div class="animate-pulse bg-surface-container rounded-xl aspect-square"></div>
-      <div class="animate-pulse bg-surface-container rounded-xl aspect-square"></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- SHOP                                                         -->
-<!-- ============================================================ -->
-<section id="shop" data-nav-section class="py-24 bg-surface">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
-
-    <div class="text-center mb-14 reveal">
-      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-3">Musik kaufen & herunterladen</h2>
-      <p class="text-text-muted max-w-xl mx-auto leading-relaxed">
-        Höre kostenlos rein – und lade deine Lieblingslieder als hochqualitative Audiodatei herunter. Sicher bezahlen via Payhip, sofortiger Download.
+    <div class="text-center mb-16 reveal">
+      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-4">✨ Dein persönliches Lied</h2>
+      <p class="text-lg text-text-muted max-w-2xl mx-auto leading-relaxed mb-3">
+        Manche Gefühle lassen sich nicht einfach in Worte fassen.
+      </p>
+      <p class="text-lg text-text-muted max-w-2xl mx-auto leading-relaxed mb-5">
+        Genau dafür entsteht dein persönliches Lied. Ein Song, der deine Geschichte erzählt und etwas ganz Besonderes festhält.
+      </p>
+      <p class="font-bold text-on-surface text-base">
+        👉 Jedes Lied ist ein Unikat und wird nur für dich erschaffen.
       </p>
     </div>
 
-    <!-- Individual songs (compact buy cards) -->
-    <div id="shop-song-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16 reveal">
-      <!-- Populated by JS from songs.json -->
-      <div class="animate-pulse bg-surface-container rounded-xl h-40"></div>
-      <div class="animate-pulse bg-surface-container rounded-xl h-40"></div>
-      <div class="animate-pulse bg-surface-container rounded-xl h-40"></div>
-      <div class="animate-pulse bg-surface-container rounded-xl h-40"></div>
-    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 reveal">
 
-    <!-- Bundles -->
-    <div class="reveal">
-      <h3 class="text-2xl font-bold font-headline text-on-surface mb-8 text-center">Bundles</h3>
-      <div id="bundles-grid" class="space-y-6">
-        <!-- Populated by JS -->
-      </div>
-    </div>
-
-    <!-- Trust bar -->
-    <div class="mt-14 flex flex-wrap justify-center gap-8 text-sm text-text-muted reveal">
-      <span class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1">lock</span>
-        Sicher via Payhip
-      </span>
-      <span class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1">download</span>
-        Sofort-Download nach Kauf
-      </span>
-      <span class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1">high_quality</span>
-        Hochqualitative Audiodatei
-      </span>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- PERSONALIZED SONG                                            -->
-<!-- ============================================================ -->
-<section id="personalized" data-nav-section class="py-24 bg-surface-container-low">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="bg-surface rounded-2xl overflow-hidden flex flex-col lg:flex-row shadow-xl border border-primary/10 reveal">
-
-      <!-- Text -->
-      <div class="lg:w-1/2 p-10 lg:p-16 space-y-7">
-        <h2 class="text-3xl lg:text-5xl font-extrabold font-headline text-on-surface leading-tight">
-          Ein Lied so einzigartig wie deine Geschichte
-        </h2>
-        <p class="text-lg text-text-muted leading-relaxed">
-          Stell dir ein Geschenk vor, das niemals verblasst – eine maßgeschneiderte Komposition,
-          die exklusiv für einen geliebten Menschen geschrieben und aufgenommen wurde.
-        </p>
+      <!-- Das erwartet dich -->
+      <div class="bg-surface rounded-2xl p-8 shadow-lg border border-primary/10">
+        <h3 class="text-xl font-bold font-headline text-on-surface mb-6">Das erwartet dich:</h3>
         <ul class="space-y-4">
-          <li class="flex items-center gap-4">
-            <span class="w-8 h-8 rounded-full bg-accent/25 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-accent-dark text-sm" style="font-variation-settings:'FILL' 1">check</span>
-            </span>
-            <span class="font-medium text-on-surface">Individuelle Texte, basierend auf deinen persönlichen Anekdoten</span>
+          <li class="flex items-start gap-4">
+            <span class="text-xl flex-shrink-0 mt-0.5">🎵</span>
+            <span class="text-on-surface leading-relaxed">Ein Lied, das genau zu dir und deiner Geschichte passt</span>
           </li>
-          <li class="flex items-center gap-4">
-            <span class="w-8 h-8 rounded-full bg-accent/25 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-accent-dark text-sm" style="font-variation-settings:'FILL' 1">check</span>
-            </span>
-            <span class="font-medium text-on-surface">Professionelle Studioproduktion & emotionale Erzählweise</span>
+          <li class="flex items-start gap-4">
+            <span class="text-xl flex-shrink-0 mt-0.5">💛</span>
+            <span class="text-on-surface leading-relaxed">Persönlich, emotional und mit viel Gefühl erschaffen</span>
           </li>
-          <li class="flex items-center gap-4">
-            <span class="w-8 h-8 rounded-full bg-accent/25 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-accent-dark text-sm" style="font-variation-settings:'FILL' 1">check</span>
-            </span>
-            <span class="font-medium text-on-surface">Digitale Lieferung – das perfekte Geschenk für jeden Anlass</span>
+          <li class="flex items-start gap-4">
+            <span class="text-xl flex-shrink-0 mt-0.5">🎁</span>
+            <span class="text-on-surface leading-relaxed">Ein Geschenk, das lange in Erinnerung bleibt</span>
           </li>
         </ul>
-        <a href="#contact"
-           class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-dark hover:scale-105 transition-all shadow-lg shadow-primary/25">
-          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">edit_note</span>
-          Dein Lied anfragen
-        </a>
       </div>
 
-      <!-- Visual: rotating cover collage -->
-      <div class="lg:w-1/2 bg-gradient-to-br from-primary/5 to-accent/10 min-h-[320px] lg:min-h-0 flex items-center justify-center p-10 relative overflow-hidden">
-        <div class="relative w-56 h-56">
-          <!-- Stacked covers -->
-          <img src="assets/song covers/So wie du bist-Cover.jpg"        alt="" class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-2xl rotate-[-6deg] opacity-60" aria-hidden="true" />
-          <img src="assets/song covers/Der Traumzug-Cover.jpg"          alt="" class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-2xl rotate-[3deg] opacity-80" aria-hidden="true" />
-          <img src="assets/song covers/Alle meine Gefühle-Cover.jpg"    alt="" class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-2xl" aria-hidden="true" />
-        </div>
-        <!-- Floating note badge -->
-        <div class="absolute top-8 right-8 w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-xl shadow-primary/30">
-          <span class="material-symbols-outlined text-on-primary text-2xl" style="font-variation-settings:'FILL' 1">music_note</span>
-        </div>
+      <!-- Für viele besondere Momente -->
+      <div class="bg-surface rounded-2xl p-8 shadow-lg border border-primary/10">
+        <h3 class="text-xl font-bold font-headline text-on-surface mb-6">Für viele besondere Momente:</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-4">
+            <span class="text-xl flex-shrink-0 mt-0.5">👶</span>
+            <span class="text-on-surface leading-relaxed">Geburt oder Einschulung</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="text-xl flex-shrink-0 mt-0.5">🎉</span>
+            <span class="text-on-surface leading-relaxed">Geburtstag</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="text-xl flex-shrink-0 mt-0.5">❤️</span>
+            <span class="text-on-surface leading-relaxed">Für deinen Partner oder deine Partnerin</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="text-xl flex-shrink-0 mt-0.5">👨‍👩‍👧‍👦</span>
+            <span class="text-on-surface leading-relaxed">Familie und Freunde</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="text-xl flex-shrink-0 mt-0.5">✨</span>
+            <span class="text-on-surface leading-relaxed">Oder einfach, um jemandem eine Freude zu machen</span>
+          </li>
+        </ul>
       </div>
 
     </div>
+
+    <div class="text-center mt-12 reveal">
+      <a href="#anfragen"
+         class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-base hover:bg-primary-dark hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25">
+        Jetzt Lied anfragen
+      </a>
+    </div>
+
   </div>
 </section>
 
 <!-- ============================================================ -->
-<!-- HOW IT WORKS                                                 -->
+<!-- SO FUNKTIONIERT'S                                            -->
 <!-- ============================================================ -->
-<section class="py-24 bg-background">
+<section id="wie-es-funktioniert" data-nav-section class="py-24 bg-background">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="text-center mb-16 reveal">
-      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface">Der Weg zu deiner Melodie</h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative reveal">
 
-      <!-- Connector line (desktop) -->
-      <div class="hidden md:block absolute top-10 left-[calc(16.6%+2.5rem)] right-[calc(16.6%+2.5rem)] h-px bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20"></div>
+    <div class="text-center mb-16 reveal">
+      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface">💛 So entsteht dein persönliches Lied</h2>
+      <p class="text-text-muted mt-3">Der Weg zu deinem Lied ist ganz einfach.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative reveal">
 
       <!-- Step 1 -->
       <div class="flex flex-col items-center text-center space-y-5">
@@ -491,122 +421,392 @@
           <span class="material-symbols-outlined text-primary text-4xl">chat_bubble</span>
           <span class="absolute -top-2 -right-2 w-7 h-7 bg-accent text-on-surface rounded-full flex items-center justify-center font-bold text-sm shadow-sm">1</span>
         </div>
-        <h3 class="text-xl font-bold font-headline text-on-surface">Erzähl deine Geschichte</h3>
-        <p class="text-text-muted text-sm leading-relaxed">Teile deine Erinnerungen, Namen und Emotionen über das Kontaktformular – ganz einfach und persönlich.</p>
+        <h3 class="text-lg font-bold font-headline text-on-surface">Du erzählst mir deine Idee</h3>
+        <p class="text-text-muted text-sm leading-relaxed">Du teilst mit mir, für wen das Lied ist und was es ausdrücken soll.</p>
       </div>
 
       <!-- Step 2 -->
       <div class="flex flex-col items-center text-center space-y-5">
         <div class="relative w-20 h-20 bg-surface rounded-full flex items-center justify-center border-2 border-primary/20 shadow-[0_8px_24px_rgba(59,168,223,0.1)]">
-          <span class="material-symbols-outlined text-primary text-4xl">edit_note</span>
+          <span class="material-symbols-outlined text-primary text-4xl">forum</span>
           <span class="absolute -top-2 -right-2 w-7 h-7 bg-accent text-on-surface rounded-full flex items-center justify-center font-bold text-sm shadow-sm">2</span>
         </div>
-        <h3 class="text-xl font-bold font-headline text-on-surface">Ich erstelle dein Lied</h3>
-        <p class="text-text-muted text-sm leading-relaxed">Deine Worte werden im Studio zur Melodie – mit handwerklicher Sorgfalt und emotionaler Tiefe.</p>
+        <h3 class="text-lg font-bold font-headline text-on-surface">Ich melde mich persönlich bei dir</h3>
+        <p class="text-text-muted text-sm leading-relaxed">Wir besprechen alles in Ruhe und schauen gemeinsam, wie dein Lied entstehen darf.</p>
       </div>
 
       <!-- Step 3 -->
       <div class="flex flex-col items-center text-center space-y-5">
         <div class="relative w-20 h-20 bg-surface rounded-full flex items-center justify-center border-2 border-primary/20 shadow-[0_8px_24px_rgba(59,168,223,0.1)]">
-          <span class="material-symbols-outlined text-primary text-4xl">headset</span>
+          <span class="material-symbols-outlined text-primary text-4xl">edit_note</span>
           <span class="absolute -top-2 -right-2 w-7 h-7 bg-accent text-on-surface rounded-full flex items-center justify-center font-bold text-sm shadow-sm">3</span>
         </div>
-        <h3 class="text-xl font-bold font-headline text-on-surface">Du erhältst deine Musik</h3>
-        <p class="text-text-muted text-sm leading-relaxed">Innerhalb von 14 Tagen erhältst du deinen hochwertigen digitalen Song – bereit zum Teilen und Genießen.</p>
+        <h3 class="text-lg font-bold font-headline text-on-surface">Dein Lied wird erschaffen</h3>
+        <p class="text-text-muted text-sm leading-relaxed">Ich schreibe und produziere deinen Song mit viel Gefühl und Liebe zum Detail.</p>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- ABOUT                                                        -->
-<!-- ============================================================ -->
-<section id="about" data-nav-section class="py-24 bg-surface">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-    <!-- Cover collage -->
-    <div class="order-2 lg:order-1 reveal">
-      <div class="grid grid-cols-2 gap-4">
-        <img src="assets/song covers/Heut ist ein guter Tag-Cover.jpg"
-             alt="Heut ist ein guter Tag – Cover"
-             class="rounded-xl shadow-lg aspect-square object-cover" />
-        <img src="assets/song covers/So wie du bist-Cover.jpg"
-             alt="So wie du bist – Cover"
-             class="rounded-xl shadow-lg aspect-square object-cover mt-8" />
-      </div>
-    </div>
-
-    <!-- Text -->
-    <div class="space-y-7 order-1 lg:order-2 reveal">
-      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface leading-tight">
-        Vom leisen Flüstern zur Symphonie der Herzen
-      </h2>
-      <p class="text-lg text-text-muted leading-relaxed">
-        HörMäuschen begann als persönliches Projekt: sanfte Schlaflieder für meine eigenen Kinder. Was als Herzensangelegenheit begann, fand bald grossen Anklang und entwickelte sich zu einem Ort für emotionale Musik für alle Altersgruppen.
-      </p>
-      <p class="text-lg text-text-muted leading-relaxed">
-        Heute verbinde ich musikalische Handwerkskunst mit einem tiefen Gespür für das menschliche Erleben. Ob das Kichern eines Kleinkindes oder die Tränen einer Braut – jedes Gefühl verdient seine eigene Melodie.
-      </p>
-      <div class="flex items-center gap-4 pt-2">
-        <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings:'FILL' 1">location_on</span>
-        <div>
-          <p class="font-bold text-on-surface">Buchs SG, Schweiz</p>
-          <p class="text-sm text-text-muted">Handgefertigte Melodien seit Tag 1</p>
+      <!-- Step 4 -->
+      <div class="flex flex-col items-center text-center space-y-5">
+        <div class="relative w-20 h-20 bg-surface rounded-full flex items-center justify-center border-2 border-primary/20 shadow-[0_8px_24px_rgba(59,168,223,0.1)]">
+          <span class="material-symbols-outlined text-primary text-4xl">headset</span>
+          <span class="absolute -top-2 -right-2 w-7 h-7 bg-accent text-on-surface rounded-full flex items-center justify-center font-bold text-sm shadow-sm">4</span>
         </div>
+        <h3 class="text-lg font-bold font-headline text-on-surface">Du erhältst dein persönliches Lied</h3>
+        <p class="text-text-muted text-sm leading-relaxed">Ein einzigartiges Geschenk, das bleibt und immer wieder berührt.</p>
       </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ÜBER MICH                                                    -->
+<!-- ============================================================ -->
+<section id="ueber-mich" data-nav-section class="py-24 bg-surface">
+  <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+    <div class="text-center mb-12 reveal">
+      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface">💛 Über HörMäuschen</h2>
+    </div>
+
+    <div class="space-y-6 text-lg text-text-muted leading-relaxed reveal">
+      <p>
+        Ich bin Nicole und Mama von zwei Kindern. Musik und Kreativität begleiten mich schon lange und sind heute ein fester Teil meines Alltags geworden.
+      </p>
+      <p>
+        In unserem Familienleben habe ich oft gespürt, dass es viele Kinderlieder gibt, aber nur wenige, die sich wirklich mit Gefühlen beschäftigen. Lieder, die nicht nur fröhlich sind, sondern auch das ausdrücken, was Kinder wirklich bewegt.
+      </p>
+      <p class="font-semibold text-on-surface">
+        So habe ich angefangen, eigene Lieder zu erschaffen.
+      </p>
+      <p>
+        Was mit Liedern über Gefühle begonnen hat, hat sich mit der Zeit weiterentwickelt. Heute entstehen bei mir Lieder zu ganz unterschiedlichen Themen und Momenten.
+      </p>
+      <p>
+        Die Ideen dafür kommen vor allem von meinen Kindern und aus unserem gemeinsamen Alltag. Ihre Gedanken, ihre Wünsche und ihre kleinen und großen Gefühle inspirieren mich jeden Tag.
+      </p>
+      <p>
+        Ein ganz besonderer Moment war der Schulanfang meines großen Kindes. Dafür habe ich ein persönliches Lied geschrieben und produziert. Dabei habe ich gemerkt, wie viel Freude es mir macht, individuelle Lieder zu erschaffen und wie viel Musik auslösen kann.
+      </p>
+      <p>
+        Mit der Zeit sind auch andere Menschen auf mich zugekommen und haben sich persönliche Lieder gewünscht. So durfte ich immer mehr individuelle Songs für besondere Anlässe und Herzensmenschen erschaffen.
+      </p>
+      <p class="font-semibold text-on-surface">
+        Und genau das möchte ich jetzt mit dir teilen.
+      </p>
+      <p>
+        Ich glaube daran, dass Musik Erinnerungen festhalten kann, auf eine Weise, die Worte allein oft nicht schaffen.
+      </p>
+      <p>
+        👉 Vielleicht darf ich auch deine Geschichte in ein Lied verwandeln.
+      </p>
+    </div>
+
+    <div class="text-center mt-12 reveal">
+      <a href="#anfragen"
+         class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-base hover:bg-primary-dark hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25">
+        Jetzt Lied anfragen
+      </a>
     </div>
 
   </div>
 </section>
 
 <!-- ============================================================ -->
-<!-- CONTACT                                                      -->
+<!-- KUNDENFEEDBACK                                               -->
 <!-- ============================================================ -->
-<section id="contact" data-nav-section class="py-24 bg-surface-container-low">
+<section class="py-24 bg-background">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="flex flex-col lg:flex-row gap-16">
 
-      <!-- Left info -->
-      <div class="lg:w-1/3 reveal">
-        <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-5 leading-tight">
-          Lass uns gemeinsam etwas Schönes erschaffen
-        </h2>
-        <p class="text-text-muted mb-10 leading-relaxed">
-          Hast du eine Idee oder eine Geschichte, die in Musik erzählt werden soll? Schreib mir – ich freue mich von dir zu hören.
+    <div class="text-center mb-14 reveal">
+      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-3">Das sagen meine Kunden</h2>
+      <p class="text-text-muted">Echte Erfahrungen, echte Gefühle.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
+
+      <!-- Testimonial 1 -->
+      <div class="bg-surface rounded-2xl p-8 shadow-lg border border-primary/10 flex flex-col gap-4">
+        <div class="flex gap-1 text-yellow-400 text-lg">★★★★★</div>
+        <p class="text-text-muted leading-relaxed italic flex-1">
+          "Ein wunderschönes Lied für unsere Tochter zum Geburtstag – sie war zu Tränen gerührt! Einfach unvergesslich. Danke, Nicole!"
         </p>
-        <div class="space-y-5">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-primary shadow-sm border border-surface-container-high flex-shrink-0">
-              <span class="material-symbols-outlined text-lg">mail</span>
-            </div>
-            <a href="mailto:info@hoermaeuschen.ch" class="font-medium text-on-surface hover:text-primary transition-colors">
-              info@hoermaeuschen.ch
-            </a>
-          </div>
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-primary shadow-sm border border-surface-container-high flex-shrink-0">
-              <span class="material-symbols-outlined text-lg">location_on</span>
-            </div>
-            <span class="font-medium text-on-surface">Buchs SG, Schweiz</span>
-          </div>
-        </div>
+        <p class="font-bold text-on-surface text-sm">— Sabine M.</p>
       </div>
 
-      <!-- Right: mailto CTA -->
-      <div class="lg:w-2/3 bg-surface p-8 lg:p-12 rounded-2xl shadow-xl border border-surface-container-high reveal flex flex-col items-center justify-center text-center gap-6">
-        <span class="material-symbols-outlined text-primary text-6xl" style="font-variation-settings:'FILL' 1">mail</span>
-        <div class="space-y-3">
-          <p class="text-xl font-bold text-on-surface">Schreib mir direkt</p>
-          <p class="text-text-muted leading-relaxed max-w-sm">
-            Schildere mir deinen Moment – ich melde mich so schnell wie möglich bei dir.
+      <!-- Testimonial 2 -->
+      <div class="bg-surface rounded-2xl p-8 shadow-lg border border-primary/10 flex flex-col gap-4">
+        <div class="flex gap-1 text-yellow-400 text-lg">★★★★★</div>
+        <p class="text-text-muted leading-relaxed italic flex-1">
+          "Das persönliche Lied zur Einschulung meines Sohnes war das schönste Geschenk. Jedes Mal wenn wir es hören, lächeln wir."
+        </p>
+        <p class="font-bold text-on-surface text-sm">— Thomas K.</p>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="bg-surface rounded-2xl p-8 shadow-lg border border-primary/10 flex flex-col gap-4">
+        <div class="flex gap-1 text-yellow-400 text-lg">★★★★★</div>
+        <p class="text-text-muted leading-relaxed italic flex-1">
+          "Unglaublich, wie Nicole aus ein paar Zeilen über uns eine so gefühlvolle Melodie gemacht hat. Ein echtes Herzensgeschenk!"
+        </p>
+        <p class="font-bold text-on-surface text-sm">— Laura & Stefan</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FAQ                                                          -->
+<!-- ============================================================ -->
+<section class="py-24 bg-surface">
+  <div class="max-w-3xl mx-auto px-6 lg:px-8">
+
+    <div class="text-center mb-14 reveal">
+      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-3">Häufige Fragen</h2>
+    </div>
+
+    <div class="space-y-4 reveal">
+
+      <div class="faq-item bg-background border border-surface-container-high rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-bold text-on-surface hover:bg-surface-container transition-colors">
+          <span>Nutzt du KI bei der Liedgestaltung?</span>
+          <span class="faq-icon material-symbols-outlined text-primary flex-shrink-0">add</span>
+        </button>
+        <div class="faq-answer hidden px-6 pb-5">
+          <p class="text-text-muted leading-relaxed">
+            Die Lieder entstehen mit kreativer Unterstützung moderner Tools, werden aber individuell von mir entwickelt und gestaltet. Jedes Lied trägt meine persönliche Handschrift und wird speziell auf dich abgestimmt.
           </p>
         </div>
-        <a href="mailto:info@hoermaeuschen.ch"
-           class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-base hover:bg-primary-dark hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25">
-          <span class="material-symbols-outlined text-xl">send</span>
-          info@hoermaeuschen.ch
-        </a>
+      </div>
+
+      <div class="faq-item bg-background border border-surface-container-high rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-bold text-on-surface hover:bg-surface-container transition-colors">
+          <span>Wie lange dauert es, bis ich mein Lied erhalte?</span>
+          <span class="faq-icon material-symbols-outlined text-primary flex-shrink-0">add</span>
+        </button>
+        <div class="faq-answer hidden px-6 pb-5">
+          <p class="text-text-muted leading-relaxed">
+            Nach deiner Anfrage melde ich mich persönlich bei dir und wir besprechen alle Details. Die genaue Umsetzungszeit hängt von deinen Wünschen ab – das klären wir gemeinsam.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-background border border-surface-container-high rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-bold text-on-surface hover:bg-surface-container transition-colors">
+          <span>Was kostet ein persönliches Lied?</span>
+          <span class="faq-icon material-symbols-outlined text-primary flex-shrink-0">add</span>
+        </button>
+        <div class="faq-answer hidden px-6 pb-5">
+          <p class="text-text-muted leading-relaxed">
+            Persönliche Lieder starten ab 149 CHF. Die genaue Umsetzung und alle Details besprechen wir nach deiner Anfrage ganz persönlich – deine Anfrage ist völlig unverbindlich.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-background border border-surface-container-high rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex items-center justify-between px-6 py-5 text-left font-bold text-on-surface hover:bg-surface-container transition-colors">
+          <span>In welchem Format erhalte ich mein Lied?</span>
+          <span class="faq-icon material-symbols-outlined text-primary flex-shrink-0">add</span>
+        </button>
+        <div class="faq-answer hidden px-6 pb-5">
+          <p class="text-text-muted leading-relaxed">
+            Du erhältst dein Lied als hochwertige digitale Audiodatei – bereit zum Herunterladen, Teilen und immer wieder Anhören.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ANFRAGEN — CTA + CONTACT FORM                               -->
+<!-- ============================================================ -->
+<section id="anfragen" data-nav-section class="py-24 bg-surface-container-low">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <!-- CTA Header -->
+    <div class="text-center mb-16 reveal">
+      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-4">
+        💌 Lass uns dein persönliches Lied erschaffen
+      </h2>
+      <p class="text-text-muted max-w-xl mx-auto leading-relaxed">
+        Egal ob für einen besonderen Anlass oder einfach, um jemandem eine Freude zu machen – ich freue mich auf deine Idee.
+      </p>
+    </div>
+
+    <div class="flex flex-col lg:flex-row gap-12 items-start">
+
+      <!-- Left: Info -->
+      <div class="lg:w-1/3 space-y-8 reveal">
+
+        <!-- Ein Lied, das bleibt -->
+        <div>
+          <h3 class="text-xl font-bold font-headline text-on-surface mb-4">💛 Ein Lied, das bleibt</h3>
+          <p class="text-text-muted leading-relaxed mb-3">
+            Ein Lied, das deine Geschichte erzählt – individuell, emotional und mit ganz viel Herz für dich erschaffen.
+          </p>
+          <p class="text-text-muted leading-relaxed">
+            Jedes Lied entsteht mit viel Liebe zum Detail und wird genau auf deine Wünsche abgestimmt. Jedes Lied ist ein Unikat und wird speziell für dich erschaffen.
+          </p>
+        </div>
+
+        <!-- What you get -->
+        <div>
+          <h3 class="text-lg font-bold font-headline text-on-surface mb-3">✨ Was dich erwartet</h3>
+          <ul class="space-y-2 text-text-muted text-sm">
+            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">•</span> ein persönlicher Song, nur für dich erschaffen</li>
+            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">•</span> individuell auf deine Geschichte abgestimmt</li>
+            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">•</span> mit viel Gefühl und Sorgfalt produziert</li>
+            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">•</span> ein einzigartiges Geschenk, das bleibt</li>
+          </ul>
+        </div>
+
+        <!-- How it works (short) -->
+        <div>
+          <h3 class="text-lg font-bold font-headline text-on-surface mb-3">🧩 So funktioniert's</h3>
+          <ol class="space-y-2 text-text-muted text-sm list-decimal list-inside">
+            <li>Du erzählst mir deine Idee</li>
+            <li>Ich melde mich persönlich bei dir</li>
+            <li>Gemeinsam gestalten wir dein Lied</li>
+          </ol>
+        </div>
+
+        <!-- Price -->
+        <div class="bg-surface rounded-xl p-5 border border-primary/10 shadow-sm">
+          <p class="text-sm font-bold text-text-muted uppercase tracking-widest mb-1">Preis</p>
+          <p class="text-2xl font-extrabold font-headline text-primary">🎵 ab 149 CHF</p>
+          <p class="text-sm text-text-muted mt-2 leading-relaxed">
+            Die genaue Umsetzung und alle Details besprechen wir ganz in Ruhe nach deiner Anfrage.
+          </p>
+        </div>
+
+        <!-- Contact -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-primary shadow-sm border border-surface-container-high flex-shrink-0">
+            <span class="material-symbols-outlined text-lg">mail</span>
+          </div>
+          <a href="mailto:info@hoermaeuschen.ch" class="font-medium text-on-surface hover:text-primary transition-colors text-sm">
+            info@hoermaeuschen.ch
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right: Form -->
+      <div class="lg:w-2/3 bg-surface p-8 lg:p-12 rounded-2xl shadow-xl border border-surface-container-high reveal">
+
+        <div class="mb-8">
+          <h3 class="text-2xl font-bold font-headline text-on-surface mb-2">💛 Dein persönliches Lied</h3>
+          <p class="text-text-muted leading-relaxed">
+            Wie schön, dass du hier bist 💛 Ich freue mich darauf, deine Geschichte in ein ganz besonderes Lied zu verwandeln.
+          </p>
+          <p class="text-sm text-text-muted mt-2">
+            Je mehr du mir erzählst, desto persönlicher wird dein Lied 💛
+          </p>
+        </div>
+
+        <!-- ACTION: Set the action to your Formspree endpoint, e.g. https://formspree.io/f/YOUR_FORM_ID -->
+        <!-- Until configured, the form falls back to a native mailto: submission -->
+        <form id="contact-form"
+              action="mailto:info@hoermaeuschen.ch?subject=Liedanfrage%20HörMäuschen"
+              method="POST"
+              enctype="text/plain"
+              class="space-y-6">
+
+          <!-- 1. Name -->
+          <div>
+            <label for="name" class="block text-sm font-bold text-on-surface mb-2">1. Dein Name</label>
+            <input type="text" id="name" name="name" required
+                   placeholder="Wie heisst du?"
+                   class="w-full rounded-xl border border-surface-container-high bg-surface-container-low px-4 py-3 text-on-surface placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition" />
+          </div>
+
+          <!-- 2. Email -->
+          <div>
+            <label for="email" class="block text-sm font-bold text-on-surface mb-2">2. Deine E-Mail-Adresse</label>
+            <input type="email" id="email" name="email" required
+                   placeholder="damit ich mich bei dir melden kann"
+                   class="w-full rounded-xl border border-surface-container-high bg-surface-container-low px-4 py-3 text-on-surface placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition" />
+          </div>
+
+          <!-- 3. Für wen -->
+          <div>
+            <label for="fuer-wen" class="block text-sm font-bold text-on-surface mb-2">3. Für wen ist das Lied?</label>
+            <input type="text" id="fuer-wen" name="fuer-wen" required
+                   placeholder="z. B. Kind, Partner, Freundin, Familie"
+                   class="w-full rounded-xl border border-surface-container-high bg-surface-container-low px-4 py-3 text-on-surface placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition" />
+          </div>
+
+          <!-- 4. Anlass -->
+          <div>
+            <label for="anlass" class="block text-sm font-bold text-on-surface mb-2">4. Was ist der Anlass?</label>
+            <input type="text" id="anlass" name="anlass" required
+                   placeholder="z. B. Geburtstag, Geburt, Hochzeit, Einschulung oder eine besondere Überraschung"
+                   class="w-full rounded-xl border border-surface-container-high bg-surface-container-low px-4 py-3 text-on-surface placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition" />
+          </div>
+
+          <!-- 5. Worum geht's — KEY FIELD -->
+          <div>
+            <label for="geschichte" class="block text-sm font-bold text-on-surface mb-2">
+              5. Worum soll es im Lied gehen? ⭐
+            </label>
+            <textarea id="geschichte" name="geschichte" required rows="6"
+                      placeholder="Erzähl mir alles, was das Lied besonders machen soll – Erinnerungen, Eigenschaften, besondere Momente, Namen …"
+                      class="w-full rounded-xl border border-surface-container-high bg-surface-container-low px-4 py-3 text-on-surface placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition resize-none"></textarea>
+            <p class="text-xs text-text-muted mt-2 leading-relaxed">
+              Erzähle mir so viel du möchtest – je mehr ich über eure Geschichte weiß, desto persönlicher wird dein Lied 💛
+            </p>
+          </div>
+
+          <!-- 6. Stimmung (optional, checkboxes) -->
+          <div>
+            <p class="block text-sm font-bold text-on-surface mb-3">6. Welche Stimmung wünschst du dir? <span class="font-normal text-text-muted">(optional)</span></p>
+            <div class="flex flex-wrap gap-3">
+              <div class="mood-checkbox">
+                <input type="checkbox" id="stimmung-froh" name="stimmung" value="fröhlich" />
+                <label for="stimmung-froh">😄 fröhlich</label>
+              </div>
+              <div class="mood-checkbox">
+                <input type="checkbox" id="stimmung-emotional" name="stimmung" value="emotional" />
+                <label for="stimmung-emotional">💛 emotional</label>
+              </div>
+              <div class="mood-checkbox">
+                <input type="checkbox" id="stimmung-ruhig" name="stimmung" value="ruhig" />
+                <label for="stimmung-ruhig">🌿 ruhig</label>
+              </div>
+              <div class="mood-checkbox">
+                <input type="checkbox" id="stimmung-offen" name="stimmung" value="offen für Vorschläge" />
+                <label for="stimmung-offen">✨ ich bin offen für Vorschläge</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Besondere Wünsche (optional) -->
+          <div>
+            <label for="wuensche" class="block text-sm font-bold text-on-surface mb-2">7. Gibt es besondere Wünsche? <span class="font-normal text-text-muted">(optional)</span></label>
+            <input type="text" id="wuensche" name="wuensche"
+                   placeholder="z. B. Namen, bestimmte Erinnerungen oder Details"
+                   class="w-full rounded-xl border border-surface-container-high bg-surface-container-low px-4 py-3 text-on-surface placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition" />
+          </div>
+
+          <!-- Submit -->
+          <div class="pt-2">
+            <button type="submit"
+                    class="w-full inline-flex items-center justify-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-base hover:bg-primary-dark hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-primary/25">
+              <span class="material-symbols-outlined text-xl">send</span>
+              Anfrage senden
+            </button>
+            <p class="text-center text-sm text-text-muted mt-4 leading-relaxed">
+              Ich melde mich persönlich bei dir, um alles Weitere zu besprechen.<br />
+              Deine Anfrage ist unverbindlich 💛
+            </p>
+          </div>
+
+        </form>
       </div>
 
     </div>
@@ -627,7 +827,6 @@
         <p class="text-sm leading-relaxed max-w-xs">
           Handgefertigte Melodien für alle Kapitel des Lebens. Musik, die bleibt.
         </p>
-        <p class="text-xs text-surface/40 mt-2">Buchs SG, Schweiz</p>
       </div>
 
       <!-- Links -->
@@ -635,12 +834,12 @@
         <div>
           <p class="font-bold text-surface/40 uppercase tracking-widest text-xs mb-4">Navigation</p>
           <ul class="space-y-2.5">
-            <li><a href="#home"         class="hover:text-surface transition-colors">Home</a></li>
-            <li><a href="#songs"        class="hover:text-surface transition-colors">Songs</a></li>
-            <li><a href="#shop"         class="hover:text-surface transition-colors">Shop</a></li>
-            <li><a href="#personalized" class="hover:text-surface transition-colors">Persönliche Lieder</a></li>
-            <li><a href="#about"        class="hover:text-surface transition-colors">Über uns</a></li>
-            <li><a href="#contact"      class="hover:text-surface transition-colors">Kontakt</a></li>
+            <li><a href="#home"                class="hover:text-surface transition-colors">Home</a></li>
+            <li><a href="#hoerprobe"           class="hover:text-surface transition-colors">Hörprobe</a></li>
+            <li><a href="#angebot"             class="hover:text-surface transition-colors">Mein Angebot</a></li>
+            <li><a href="#wie-es-funktioniert" class="hover:text-surface transition-colors">So funktioniert's</a></li>
+            <li><a href="#ueber-mich"          class="hover:text-surface transition-colors">Über mich</a></li>
+            <li><a href="#anfragen"            class="hover:text-surface transition-colors">Lied anfragen</a></li>
           </ul>
         </div>
         <div>
@@ -654,12 +853,12 @@
         <div>
           <p class="font-bold text-surface/40 uppercase tracking-widest text-xs mb-4">Musik hören</p>
           <ul class="space-y-2.5" id="footer-streaming-links">
-            <!-- Streaming links populated here — add URLs to songs.json and update these hrefs -->
-            <li><a href="#" class="hover:text-surface transition-colors">Spotify</a></li>
-            <li><a href="#" class="hover:text-surface transition-colors">YouTube</a></li>
-            <li><a href="#" class="hover:text-surface transition-colors">Apple Music</a></li>
-            <li><a href="#" class="hover:text-surface transition-colors">Amazon Music</a></li>
-            <li><a href="#" class="hover:text-surface transition-colors">YouTube Music</a></li>
+            <!-- Populated by JS from songs.json → artist_streaming -->
+            <li><a href="https://open.spotify.com/artist/5oCiRDC9LEOM2G7zX3ANrZ" target="_blank" rel="noopener noreferrer" class="hover:text-surface transition-colors">Spotify</a></li>
+            <li><a href="https://www.youtube.com/@H%C3%B6rM%C3%A4uschen" target="_blank" rel="noopener noreferrer" class="hover:text-surface transition-colors">YouTube</a></li>
+            <li><a href="https://music.apple.com/us/artist/h%C3%B6rm%C3%A4uschen/1847819275" target="_blank" rel="noopener noreferrer" class="hover:text-surface transition-colors">Apple Music</a></li>
+            <li><a href="https://music.amazon.de/artists/B0FXB19YY2/h%C3%B6rm%C3%A4uschen" target="_blank" rel="noopener noreferrer" class="hover:text-surface transition-colors">Amazon Music</a></li>
+            <li><a href="https://music.youtube.com/channel/UCAWzoSha-ATtfZ1EY1itwcg" target="_blank" rel="noopener noreferrer" class="hover:text-surface transition-colors">YouTube Music</a></li>
           </ul>
         </div>
       </div>
@@ -679,77 +878,8 @@
 </footer>
 
 <!-- ============================================================ -->
-<!-- FLOATING AUDIO PLAYER                                        -->
-<!-- ============================================================ -->
-<div id="floating-player" class="fixed bottom-6 right-4 lg:right-8 z-50 w-[calc(100vw-2rem)] max-w-xs lg:max-w-sm" role="region" aria-label="Musik-Player">
-  <div class="glass-card rounded-2xl p-4 shadow-2xl border border-primary/15">
-
-    <!-- Song info row -->
-    <div class="flex items-center gap-3 mb-3">
-      <div class="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 shadow-md border border-primary/10">
-        <img id="fp-cover"
-             src="assets/song covers/Alle meine Gefühle-Cover.jpg"
-             alt="Song Cover"
-             class="w-full h-full object-cover" />
-      </div>
-      <div class="flex-1 min-w-0">
-        <p id="fp-title"    class="text-sm font-bold text-on-surface truncate leading-tight">Alle meine Gefühle</p>
-        <p id="fp-category" class="text-[11px] text-text-muted font-medium uppercase tracking-wide">Emotionale Lieder</p>
-      </div>
-      <button onclick="document.getElementById('floating-player').classList.toggle('player-hidden')"
-              class="w-7 h-7 rounded-full flex items-center justify-center text-text-muted hover:text-on-surface hover:bg-surface-container transition-colors flex-shrink-0"
-              aria-label="Player minimieren">
-        <span class="material-symbols-outlined text-base">keyboard_arrow_down</span>
-      </button>
-    </div>
-
-    <!-- Progress bar -->
-    <div class="progress-bar relative h-1.5 w-full bg-primary/10 rounded-full mb-2 overflow-hidden" role="slider" aria-label="Fortschritt">
-      <div class="progress-fill absolute top-0 left-0 h-full bg-primary rounded-full transition-none pointer-events-none" style="width:0%"></div>
-    </div>
-
-    <!-- Time -->
-    <div class="flex justify-between text-[10px] text-text-muted font-medium mb-3 px-0.5">
-      <span id="player-current-time">0:00</span>
-      <span id="player-duration">0:00</span>
-    </div>
-
-    <!-- Controls -->
-    <div class="flex items-center justify-between">
-      <div class="flex items-center gap-1">
-        <button onclick="prevTrack()" class="w-9 h-9 rounded-full flex items-center justify-center text-primary hover:bg-primary/8 transition-colors" aria-label="Vorheriger Song">
-          <span class="material-symbols-outlined text-lg">skip_previous</span>
-        </button>
-        <button onclick="togglePlay()" class="w-11 h-11 bg-primary text-on-primary rounded-xl flex items-center justify-center hover:bg-primary-dark hover:scale-105 transition-all shadow-lg shadow-primary/30" aria-label="Abspielen / Pausieren">
-          <span class="material-symbols-outlined text-xl main-play-icon" style="font-variation-settings:'FILL' 1">play_arrow</span>
-        </button>
-        <button onclick="nextTrack()" class="w-9 h-9 rounded-full flex items-center justify-center text-primary hover:bg-primary/8 transition-colors" aria-label="Nächster Song">
-          <span class="material-symbols-outlined text-lg">skip_next</span>
-        </button>
-      </div>
-      <div class="flex items-center gap-1">
-        <span class="material-symbols-outlined text-text-muted text-base">volume_up</span>
-        <input type="range" min="0" max="1" step="0.05" value="1"
-               class="w-16 h-1 accent-primary"
-               aria-label="Lautstärke"
-               oninput="audio.volume = this.value" />
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ============================================================ -->
 <!-- SCRIPTS                                                      -->
 <!-- ============================================================ -->
-<script>
-  // Scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => revealObserver.observe(el));
-</script>
 <script src="js/main.js"></script>
 
 </body>
