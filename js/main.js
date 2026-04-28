@@ -39,31 +39,38 @@ async function loadContent() {
 // STREAMING BAR — with platform logos via Simple Icons CDN
 // ============================================================
 
+// Inline SVG icons with brand colours — no CDN dependency.
+const PLATFORM_ICONS = {
+  spotify: `<svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#1DB954" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>`,
+
+  youtube: `<svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`,
+
+  apple: `<svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#FC3C44" d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a6.133 6.133 0 0 0-1.903-.737 9.55 9.55 0 0 0-1.41-.109c-.03 0-9.535.004-9.535.004V5.17l.004.186V8.01c-.638-.34-1.35-.536-2.108-.536C3.605 7.474.862 10.197.862 13.56c0 3.362 2.743 6.085 6.12 6.085 3.378 0 6.12-2.723 6.12-6.085V7.07h6.986a3.77 3.77 0 0 1-.01-.337V4.86h.014c.024 0 .048-.002.072-.002 1.254 0 2.306.94 2.455 2.18a2.48 2.48 0 0 1 .02.32v1.77a.9.9 0 0 1-.898.9h-.834v1.794h.834c.497 0 .898.4.898.898v1.768a2.47 2.47 0 0 1-2.475 2.475h-.038V16.8h.038c2.356 0 4.269-1.913 4.269-4.268v-1.769a2.68 2.68 0 0 0-.898-1.993 2.68 2.68 0 0 0 .898-1.993V5.008a4.247 4.247 0 0 0-.44-1.884zM6.982 17.851c-2.356 0-4.268-1.912-4.268-4.268s1.912-4.268 4.268-4.268c2.357 0 4.269 1.912 4.269 4.268s-1.912 4.268-4.269 4.268z"/></svg>`,
+
+  amazon: `<svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#FF9900" d="M.288 17.108c3.107 1.94 6.763 3.12 10.685 3.12 3.28 0 7.205-.87 10.012-2.854.43-.303.047-.747-.42-.534-2.87 1.196-5.969 1.783-8.852 1.783-3.789 0-7.45-.99-10.566-2.735-.39-.22-.7.29-.36.52M.015 15.56c-.14.095-.168.299-.06.433 3.064 3.816 7.665 6.268 12.867 6.268 3.94 0 8.36-1.52 11.39-4.16.334-.288.164-.78-.27-.694-4.008.804-8.37 1.205-12.403.388C7.635 17.046 3.593 15.42.015 15.56M14.75 6.978c-.018.065.033.13.1.13h1.756c.058 0 .108-.038.12-.094l.713-4.1h2.657l.716 4.1a.123.123 0 0 0 .12.094h1.757c.067 0 .118-.065.1-.13L20.04 0H17.71l-2.96 6.978zm-7.384 0c-.017.065.033.13.1.13H9.23a.12.12 0 0 0 .12-.094l.714-4.1H12.7l.716 4.1c.013.056.063.094.12.094h1.758c.067 0 .118-.065.1-.13L12.636 0h-2.33L7.366 6.978z"/></svg>`,
+
+  youtubeMusic: `<svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#FF0000" d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.2C7.128 19.2 3.2 15.272 3.2 12 3.2 8.728 7.128 4.8 12 4.8c4.872 0 8.8 3.928 8.8 7.2 0 3.272-3.928 7.2-8.8 7.2zm-2.4-10.8v7.2l6-3.6-6-3.6z"/></svg>`,
+};
+
 function renderStreamingBar() {
   const section   = document.getElementById('streaming-bar-section');
   const container = document.getElementById('streaming-bar');
   if (!section || !container) return;
 
   const platforms = [
-    { key: 'spotify',      label: 'Spotify',       slug: 'spotify' },
-    { key: 'apple',        label: 'Apple Music',    slug: 'applemusic' },
-    { key: 'youtubeMusic', label: 'YouTube Music',  slug: 'youtubemusic' },
-    { key: 'amazon',       label: 'Amazon Music',   slug: 'amazonmusic' },
-    { key: 'youtube',      label: 'YouTube',        slug: 'youtube' },
+    { key: 'spotify',      label: 'Spotify',       icon: PLATFORM_ICONS.spotify },
+    { key: 'apple',        label: 'Apple Music',    icon: PLATFORM_ICONS.apple },
+    { key: 'youtubeMusic', label: 'YouTube Music',  icon: PLATFORM_ICONS.youtubeMusic },
+    { key: 'amazon',       label: 'Amazon Music',   icon: PLATFORM_ICONS.amazon },
+    { key: 'youtube',      label: 'YouTube',        icon: PLATFORM_ICONS.youtube },
   ];
-
-  // jsDelivr serves the Simple Icons npm package — more reliable than cdn.simpleicons.org.
-  // CSS filter brightness(0) invert(1) turns any brand-coloured SVG white.
-  const cdnBase = 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons';
 
   const links = platforms
     .filter(p => artistStreaming[p.key])
     .map(p => `
       <a href="${artistStreaming[p.key]}" target="_blank" rel="noopener noreferrer"
          class="inline-flex items-center gap-2.5 px-5 py-2.5 border border-surface/15 rounded-full text-sm font-semibold text-surface/75 hover:bg-surface/10 hover:text-surface hover:border-surface/30 transition-all duration-200">
-        <img src="${cdnBase}/${p.slug}.svg"
-             style="filter:brightness(0) invert(1);"
-             width="18" height="18" alt="${p.label}" loading="lazy" />
+        ${p.icon}
         ${p.label}
       </a>`)
     .join('');
