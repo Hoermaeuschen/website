@@ -1,0 +1,112 @@
+{
+  "youtube_videos": [],
+  "artist_streaming": {
+    "spotify":      "https://open.spotify.com/artist/5oCiRDC9LEOM2G7zX3ANrZ",
+    "youtube":      "https://www.youtube.com/@H%C3%B6rM%C3%A4uschen",
+    "apple":        "https://music.apple.com/us/artist/h%C3%B6rm%C3%A4uschen/1847819275",
+    "amazon":       "https://music.amazon.de/artists/B0FXB19YY2/h%C3%B6rm%C3%A4uschen",
+    "youtubeMusic": "https://music.youtube.com/channel/UCAWzoSha-ATtfZ1EY1itwcg"
+  },
+  "categories": [
+    {
+      "id": "kinderlieder",
+      "label": "Kinderlieder",
+      "description": "Verspielte, fantasievolle Melodien, die Staunen und Geborgenheit in kleine Herzen zaubern."
+    },
+    {
+      "id": "emotionale-lieder",
+      "label": "Emotionale Lieder",
+      "description": "Tief bewegende Kompositionen für Momente der Reflexion, Liebe und des Wachstums."
+    },
+    {
+      "id": "anlass-lieder",
+      "label": "Anlass-Lieder",
+      "description": "Der perfekte Soundtrack für Hochzeiten, Geburtstage und unvergessliche Meilensteine."
+    }
+  ],
+  "songs": [
+    {
+      "id": "alle-meine-gefuehle",
+      "title": "Alle meine Gefühle",
+      "category": "emotionale-lieder",
+      "cover": "assets/song covers/Alle meine Gefühle-Cover.jpg",
+      "audio": "",
+      "price": "CHF –",
+      "format": "MP3 320 kbps",
+      "featured": true,
+      "payhip_link": "",
+      "streaming": {
+        "spotify":      "",
+        "apple":        "",
+        "youtube":      "",
+        "amazon":       "",
+        "youtubeMusic": ""
+      }
+    },
+    {
+      "id": "der-traumzug",
+      "title": "Der Traumzug",
+      "category": "kinderlieder",
+      "cover": "assets/song covers/Der Traumzug-Cover.jpg",
+      "audio": "",
+      "price": "CHF –",
+      "format": "MP3 320 kbps",
+      "featured": true,
+      "payhip_link": "",
+      "streaming": {
+        "spotify":      "",
+        "apple":        "",
+        "youtube":      "",
+        "amazon":       "",
+        "youtubeMusic": ""
+      }
+    },
+    {
+      "id": "heut-ist-ein-guter-tag",
+      "title": "Heut ist ein guter Tag",
+      "category": "kinderlieder",
+      "cover": "assets/song covers/Heut ist ein guter Tag-Cover.jpg",
+      "audio": "",
+      "price": "CHF –",
+      "format": "MP3 320 kbps",
+      "featured": true,
+      "payhip_link": "",
+      "streaming": {
+        "spotify":      "",
+        "apple":        "",
+        "youtube":      "",
+        "amazon":       "",
+        "youtubeMusic": ""
+      }
+    },
+    {
+      "id": "so-wie-du-bist",
+      "title": "So wie du bist",
+      "category": "emotionale-lieder",
+      "cover": "assets/song covers/So wie du bist-Cover.jpg",
+      "audio": "",
+      "price": "CHF –",
+      "format": "MP3 320 kbps",
+      "featured": true,
+      "payhip_link": "",
+      "streaming": {
+        "spotify":      "",
+        "apple":        "",
+        "youtube":      "",
+        "amazon":       "",
+        "youtubeMusic": ""
+      }
+    }
+  ],
+  "bundles": [
+    {
+      "id": "alle-songs",
+      "title": "Alle Songs",
+      "description": "Das komplette aktuelle Repertoire – alle 4 Songs als digitaler Download.",
+      "price": "CHF –",
+      "song_ids": ["alle-meine-gefuehle", "der-traumzug", "heut-ist-ein-guter-tag", "so-wie-du-bist"],
+      "payhip_link": "",
+      "badge": "Bestseller"
+    }
+  ]
+}

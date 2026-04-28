@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>QR-Codes – HörMäuschen</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary':             '#3ba8df',
+            'primary-dark':        '#2a8dc0',
+            'on-primary':          '#ffffff',
+            'background':          '#f8f9fc',
+            'surface':             '#ffffff',
+            'surface-container':   '#f0f4f8',
+            'surface-container-high': '#e5ebf1',
+            'on-surface':          '#1e2a35',
+            'text-muted':          '#9d908d',
+          },
+          fontFamily: {
+            headline: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body:     ['"Be Vietnam Pro"',    'sans-serif'],
+          },
+          borderRadius: {
+            DEFAULT: '0.75rem',
+            lg:      '1.5rem',
+            full:    '9999px',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body { font-family: 'Be Vietnam Pro', sans-serif; background: #f8f9fc; color: #1e2a35; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+
+    /* QR canvas/img sizing */
+    #qr-home canvas, #qr-home img,
+    #qr-shop canvas, #qr-shop img,
+    #qr-personal canvas, #qr-personal img,
+    #qr-contact canvas, #qr-contact img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* ── Print styles ─────────────────────────── */
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page-wrap { padding: 1.5rem !important; }
+      .qr-card { box-shadow: none !important; border: 1px solid #e5ebf1 !important; break-inside: avoid; }
+      .qr-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1.5rem !important; }
+    }
+  </style>
+</head>
+
+<body class="font-body antialiased">
+<div class="page-wrap max-w-3xl mx-auto px-6 py-12">
+
+  <!-- ── Page header (screen only) ─────────────────────────── -->
+  <div class="no-print text-center mb-10">
+    <img src="assets/Logo_definitiv.png" alt="HörMäuschen" class="h-16 w-auto mx-auto mb-5 object-contain" />
+    <h1 class="text-3xl font-extrabold font-headline text-on-surface mb-2">QR-Codes</h1>
+    <p class="text-text-muted text-sm">Für Flyer, Visitenkarten, Plakate und Aufkleber.</p>
+  </div>
+
+  <!-- ── Print header (print only) ─────────────────────────── -->
+  <div class="hidden print:block text-center mb-8">
+    <img src="assets/Logo_definitiv.png" alt="HörMäuschen" class="h-12 w-auto mx-auto mb-3 object-contain" />
+    <p class="text-xs text-text-muted font-semibold tracking-wider">www.hoermaeuschen.ch</p>
+  </div>
+
+  <!-- ── Action buttons ─────────────────────────────────────── -->
+  <div class="no-print flex flex-wrap justify-center gap-3 mb-10">
+    <button
+      onclick="window.print()"
+      class="inline-flex items-center gap-2 bg-on-surface text-white px-6 py-3 rounded-full font-bold text-sm hover:opacity-80 transition-opacity shadow-md">
+      <span class="material-symbols-outlined text-lg">print</span>
+      Alle drucken
+    </button>
+    <a href="index.html"
+       class="inline-flex items-center gap-2 bg-surface border border-surface-container-high text-on-surface px-6 py-3 rounded-full font-semibold text-sm hover:border-primary transition-colors">
+      <span class="material-symbols-outlined text-lg">arrow_back</span>
+      Zurück zur Website
+    </a>
+  </div>
+
+  <!-- ── QR Code cards ──────────────────────────────────────── -->
+  <div class="qr-grid grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+    <!-- Homepage -->
+    <div class="qr-card bg-surface rounded-xl p-6 shadow-md border border-surface-container-high flex flex-col items-center text-center gap-4">
+      <div id="qr-home" class="p-3 bg-white rounded-xl border border-surface-container"></div>
+      <div>
+        <p class="font-headline font-bold text-on-surface text-base">Website</p>
+        <p class="text-xs text-text-muted mt-0.5 font-medium">www.hoermaeuschen.ch</p>
+        <p class="text-xs text-text-muted mt-2 leading-relaxed">Startseite — für Flyer und allgemeine Werbung</p>
+      </div>
+      <button
+        onclick="downloadQR('qr-home', 'hoermaeuschen-website-qr')"
+        class="no-print inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-primary-dark transition-colors">
+        <span class="material-symbols-outlined text-sm">download</span>
+        PNG herunterladen
+      </button>
+    </div>
+
+    <!-- Shop -->
+    <div class="qr-card bg-surface rounded-xl p-6 shadow-md border border-surface-container-high flex flex-col items-center text-center gap-4">
+      <div id="qr-shop" class="p-3 bg-white rounded-xl border border-surface-container"></div>
+      <div>
+        <p class="font-headline font-bold text-on-surface text-base">Shop</p>
+        <p class="text-xs text-text-muted mt-0.5 font-medium">www.hoermaeuschen.ch/#shop</p>
+        <p class="text-xs text-text-muted mt-2 leading-relaxed">Direkt zum Kauf — für Produktkarten oder Packagings</p>
+      </div>
+      <button
+        onclick="downloadQR('qr-shop', 'hoermaeuschen-shop-qr')"
+        class="no-print inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-primary-dark transition-colors">
+        <span class="material-symbols-outlined text-sm">download</span>
+        PNG herunterladen
+      </button>
+    </div>
+
+    <!-- Persönliches Lied -->
+    <div class="qr-card bg-surface rounded-xl p-6 shadow-md border border-surface-container-high flex flex-col items-center text-center gap-4">
+      <div id="qr-personal" class="p-3 bg-white rounded-xl border border-surface-container"></div>
+      <div>
+        <p class="font-headline font-bold text-on-surface text-base">Persönliches Lied</p>
+        <p class="text-xs text-text-muted mt-0.5 font-medium">www.hoermaeuschen.ch/#personalized</p>
+        <p class="text-xs text-text-muted mt-2 leading-relaxed">Für Hochzeiten, Taufen, Geburtstage — Anfrage direkt</p>
+      </div>
+      <button
+        onclick="downloadQR('qr-personal', 'hoermaeuschen-persoenliches-lied-qr')"
+        class="no-print inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-primary-dark transition-colors">
+        <span class="material-symbols-outlined text-sm">download</span>
+        PNG herunterladen
+      </button>
+    </div>
+
+    <!-- Kontakt -->
+    <div class="qr-card bg-surface rounded-xl p-6 shadow-md border border-surface-container-high flex flex-col items-center text-center gap-4">
+      <div id="qr-contact" class="p-3 bg-white rounded-xl border border-surface-container"></div>
+      <div>
+        <p class="font-headline font-bold text-on-surface text-base">Kontakt</p>
+        <p class="text-xs text-text-muted mt-0.5 font-medium">www.hoermaeuschen.ch/#contact</p>
+        <p class="text-xs text-text-muted mt-2 leading-relaxed">Direktlink zum Kontaktformular — für Visitenkarten</p>
+      </div>
+      <button
+        onclick="downloadQR('qr-contact', 'hoermaeuschen-kontakt-qr')"
+        class="no-print inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-primary-dark transition-colors">
+        <span class="material-symbols-outlined text-sm">download</span>
+        PNG herunterladen
+      </button>
+    </div>
+
+  </div>
+
+  <!-- ── Print tips ─────────────────────────────────────────── -->
+  <p class="no-print text-center text-xs text-text-muted mt-8">
+    Tipp: Für optimale Scanbarkeit: Mindestgrösse beim Druck 2 × 2 cm. Drucke auf weissem Papier.
+  </p>
+
+</div>
+
+<!-- QR Code library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  var BASE = 'https://www.hoermaeuschen.ch';
+  var opts = {
+    width:        256,
+    height:       256,
+    colorDark:    '#1e2a35',
+    colorLight:   '#ffffff',
+    correctLevel: QRCode.CorrectLevel.H,
+  };
+
+  new QRCode(document.getElementById('qr-home'),     Object.assign({}, opts, { text: BASE }));
+  new QRCode(document.getElementById('qr-shop'),     Object.assign({}, opts, { text: BASE + '/#shop' }));
+  new QRCode(document.getElementById('qr-personal'), Object.assign({}, opts, { text: BASE + '/#personalized' }));
+  new QRCode(document.getElementById('qr-contact'),  Object.assign({}, opts, { text: BASE + '/#contact' }));
+
+  function downloadQR(containerId, filename) {
+    // qrcodejs creates both a canvas and an img — use the canvas for download
+    var canvas = document.querySelector('#' + containerId + ' canvas');
+    if (!canvas) {
+      alert('QR-Code konnte nicht geladen werden. Bitte Seite neu laden.');
+      return;
+    }
+    var link = document.createElement('a');
+    link.download = filename + '.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }
+</script>
+</body>
+</html>
