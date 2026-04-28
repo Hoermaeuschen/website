@@ -27,17 +27,12 @@ collections:
             label_singular: YouTube-Video
             widget: list
             required: false
-            summary: "{{fields.title}}"
+            summary: "Video {{index}}"
             fields:
-              - name: video_id
-                label: YouTube Video-ID
-                widget: string
-                hint: "Nur die ID aus der YouTube-URL. Beispiel: dQw4w9WgXcQ aus youtube.com/watch?v=dQw4w9WgXcQ"
-              - name: title
-                label: Titel (für Barrierefreiheit)
-                widget: string
-                required: false
-                default: "Hörprobe HörMäuschen"
+              - name: embed_code
+                label: YouTube Einbettungs-Code (iframe)
+                widget: text
+                hint: "Auf YouTube: Teilen → Einbetten → Code kopieren. Den kompletten <iframe ...>...</iframe> Code hier einfügen."
 
           - name: songs
             label: Songs

@@ -52,12 +52,18 @@ function renderStreamingBar() {
     { key: 'youtube',      label: 'YouTube',        slug: 'youtube' },
   ];
 
+  // jsDelivr serves the Simple Icons npm package — more reliable than cdn.simpleicons.org.
+  // CSS filter brightness(0) invert(1) turns any brand-coloured SVG white.
+  const cdnBase = 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons';
+
   const links = platforms
     .filter(p => artistStreaming[p.key])
     .map(p => `
       <a href="${artistStreaming[p.key]}" target="_blank" rel="noopener noreferrer"
          class="inline-flex items-center gap-2.5 px-5 py-2.5 border border-surface/15 rounded-full text-sm font-semibold text-surface/75 hover:bg-surface/10 hover:text-surface hover:border-surface/30 transition-all duration-200">
-        <img src="https://cdn.simpleicons.org/${p.slug}/ffffff" width="18" height="18" alt="${p.label}" loading="lazy" />
+        <img src="${cdnBase}/${p.slug}.svg"
+             style="filter:brightness(0) invert(1);"
+             width="18" height="18" alt="${p.label}" loading="lazy" />
         ${p.label}
       </a>`)
     .join('');
@@ -98,25 +104,18 @@ function renderYouTubeVideos() {
   const grid = document.getElementById('youtube-grid');
   if (!grid) return;
 
-  const active = youtubeVideos.filter(v => v.video_id);
+  const active = youtubeVideos.filter(v => v.embed_code && v.embed_code.trim());
 
   if (!active.length) {
     grid.innerHTML = '<p class="text-text-muted text-center col-span-full py-12 italic">Hörproben werden bald hinzugefügt.</p>';
     return;
   }
 
+  // Paste the full YouTube <iframe> embed code directly from YouTube → Share → Einbetten.
+  // The wrapper forces the iframe to fill the responsive aspect-ratio container.
   grid.innerHTML = active.map(v => `
-    <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
-      <iframe
-        src="https://www.youtube.com/embed/${v.video_id}"
-        title="${v.title || 'Hörprobe HörMäuschen'}"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-        class="w-full h-full"
-        loading="lazy"
-      ></iframe>
+    <div class="aspect-video rounded-2xl overflow-hidden shadow-xl yt-embed">
+      ${v.embed_code}
     </div>`).join('');
 }
 
