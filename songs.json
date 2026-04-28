@@ -1,10 +1,14 @@
 {
-  "youtube_videos": [],
+  "youtube_videos": [
+    {
+      "embed_code": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/xsf8JAjZgnI?si=xI4MmonFwxYYrAJY\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+    }
+  ],
   "artist_streaming": {
-    "spotify":      "https://open.spotify.com/artist/5oCiRDC9LEOM2G7zX3ANrZ",
-    "youtube":      "https://www.youtube.com/@H%C3%B6rM%C3%A4uschen",
-    "apple":        "https://music.apple.com/us/artist/h%C3%B6rm%C3%A4uschen/1847819275",
-    "amazon":       "https://music.amazon.de/artists/B0FXB19YY2/h%C3%B6rm%C3%A4uschen",
+    "spotify": "https://open.spotify.com/artist/5oCiRDC9LEOM2G7zX3ANrZ",
+    "youtube": "https://www.youtube.com/@H%C3%B6rM%C3%A4uschen",
+    "apple": "https://music.apple.com/us/artist/h%C3%B6rm%C3%A4uschen/1847819275",
+    "amazon": "https://music.amazon.de/artists/B0FXB19YY2/h%C3%B6rm%C3%A4uschen",
     "youtubeMusic": "https://music.youtube.com/channel/UCAWzoSha-ATtfZ1EY1itwcg"
   }
 }
