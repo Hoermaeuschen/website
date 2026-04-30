@@ -121,7 +121,7 @@ function renderYouTubeVideos() {
   // Paste the full YouTube <iframe> embed code directly from YouTube → Share → Einbetten.
   // The wrapper forces the iframe to fill the responsive aspect-ratio container.
   grid.innerHTML = active.map(v => `
-    <div class="aspect-video rounded-2xl overflow-hidden shadow-xl yt-embed">
+    <div class="flex-shrink-0 w-72 aspect-video rounded-2xl overflow-hidden shadow-xl yt-embed">
       ${v.embed_code}
     </div>`).join('');
 }

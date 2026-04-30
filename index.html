@@ -221,7 +221,7 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
     <!-- Left: Text -->
-    <div class="space-y-6 relative z-10 order-2 lg:order-1">
+    <div class="space-y-6 relative z-10">
       <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-accent/20 text-on-surface font-bold rounded-full text-sm">
         <span class="material-symbols-outlined text-accent-dark text-base" style="font-variation-settings:'FILL' 1">favorite</span>
         Willkommen bei HörMäuschen
@@ -238,7 +238,8 @@
         Ob für Kinder, Partner, Familie oder als besondere Überraschung: Jedes Lied entsteht individuell und mit Liebe zum Detail.
       </p>
 
-      <div class="pt-2">
+      <!-- Desktop-only button (hidden on mobile, shown after banner image instead) -->
+      <div class="pt-2 hidden lg:block">
         <a href="#anfragen"
            class="inline-flex items-center gap-2 bg-primary text-on-primary px-7 py-4 rounded-full font-bold text-base hover:bg-primary-dark hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25">
           Jetzt Lied anfragen
@@ -247,10 +248,18 @@
     </div>
 
     <!-- Right: Banner image -->
-    <div class="flex items-center justify-center lg:justify-end order-1 lg:order-2">
+    <div class="flex items-center justify-center lg:justify-end">
       <img src="assets/banner.png"
            alt="HörMäuschen – Persönliche Lieder"
            class="w-full max-w-md lg:max-w-lg rounded-2xl shadow-2xl object-cover" />
+    </div>
+
+    <!-- Mobile-only button (after banner image) -->
+    <div class="lg:hidden col-span-full pt-2">
+      <a href="#anfragen"
+         class="inline-flex items-center gap-2 bg-primary text-on-primary px-7 py-4 rounded-full font-bold text-base hover:bg-primary-dark hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25">
+        Jetzt Lied anfragen
+      </a>
     </div>
 
   </div>
@@ -284,7 +293,7 @@
     </div>
 
     <!-- YouTube videos — managed via CMS in songs.json → youtube_videos -->
-    <div id="youtube-grid" class="grid grid-cols-2 gap-3 mb-10 mt-8 max-w-3xl mx-auto reveal">
+    <div id="youtube-grid" class="flex flex-nowrap overflow-x-auto gap-4 mb-10 mt-8 pb-2 reveal">
       <!-- Populated by JS -->
     </div>
 
@@ -449,7 +458,7 @@
     <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-stretch reveal">
 
       <!-- Left: Text -->
-      <div class="flex-1 space-y-5 text-lg text-text-muted leading-relaxed">
+      <div class="flex-1 space-y-5 text-lg text-text-muted leading-relaxed order-2 lg:order-1">
         <p>
           Ich bin Nicole, Mama von zwei Kindern, und Musik begleitet mich schon lange im Alltag.
         </p>
@@ -483,7 +492,7 @@
       </div>
 
       <!-- Right: Photo -->
-      <div class="flex-shrink-0 w-full lg:w-80 min-h-[16rem]">
+      <div class="flex-shrink-0 w-full lg:w-80 min-h-[16rem] order-1 lg:order-2">
         <img src="assets/about_me.png"
              alt="Nicole – HörMäuschen"
              class="w-full h-full object-cover rounded-2xl shadow-2xl" />
