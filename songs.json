@@ -8,6 +8,9 @@
     },
     {
       "embed_code": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/cb6ZKqJ9SPE?si=EqDM3E6oLj3h3wwS\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+    },
+    {
+      "embed_code": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/8r-zIduGKm8?si=8M5ummwpNyu36F2-\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
     }
   ],
   "artist_streaming": {
