@@ -221,7 +221,7 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
     <!-- Left: Text -->
-    <div class="space-y-6 relative z-10">
+    <div class="space-y-6 relative z-10 order-2 lg:order-1">
       <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-accent/20 text-on-surface font-bold rounded-full text-sm">
         <span class="material-symbols-outlined text-accent-dark text-base" style="font-variation-settings:'FILL' 1">favorite</span>
         Willkommen bei HörMäuschen
@@ -247,7 +247,7 @@
     </div>
 
     <!-- Right: Banner image -->
-    <div class="flex items-center justify-center lg:justify-end">
+    <div class="flex items-center justify-center lg:justify-end order-1 lg:order-2">
       <img src="assets/banner.png"
            alt="HörMäuschen – Persönliche Lieder"
            class="w-full max-w-md lg:max-w-lg rounded-2xl shadow-2xl object-cover" />
@@ -284,7 +284,7 @@
     </div>
 
     <!-- YouTube videos — managed via CMS in songs.json → youtube_videos -->
-    <div id="youtube-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10 mt-8 reveal">
+    <div id="youtube-grid" class="grid grid-cols-2 gap-3 mb-10 mt-8 max-w-3xl mx-auto reveal">
       <!-- Populated by JS -->
     </div>
 
@@ -378,50 +378,58 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
     <div class="text-center mb-16 reveal">
-      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface">✨ So entsteht dein persönliches Lied</h2>
+      <h2 class="text-xl sm:text-2xl lg:text-4xl font-bold font-headline text-on-surface">✨ So entsteht dein persönliches Lied</h2>
       <p class="text-text-muted mt-3">Der Weg zu deinem Lied ist ganz einfach.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative reveal">
 
       <!-- Step 1 -->
-      <div class="flex flex-col items-center text-center space-y-5">
-        <div class="relative w-20 h-20 bg-surface rounded-full flex items-center justify-center border-2 border-primary/20 shadow-[0_8px_24px_rgba(59,168,223,0.1)]">
-          <span class="material-symbols-outlined text-primary text-4xl">chat_bubble</span>
+      <div class="flex flex-row lg:flex-col items-start lg:items-center gap-5 text-left lg:text-center">
+        <div class="relative w-16 h-16 lg:w-20 lg:h-20 flex-shrink-0 bg-surface rounded-full flex items-center justify-center border-2 border-primary/20 shadow-[0_8px_24px_rgba(59,168,223,0.1)]">
+          <span class="material-symbols-outlined text-primary text-3xl lg:text-4xl">chat_bubble</span>
           <span class="absolute -top-2 -right-2 w-7 h-7 bg-accent text-on-surface rounded-full flex items-center justify-center font-bold text-sm shadow-sm">1</span>
         </div>
-        <h3 class="text-lg font-bold font-headline text-on-surface">Du erzählst mir deine Idee</h3>
-        <p class="text-text-muted text-sm leading-relaxed">Du teilst mit mir, für wen das Lied ist und welche Botschaft es tragen soll.</p>
+        <div>
+          <h3 class="text-base lg:text-lg font-bold font-headline text-on-surface mb-1">Du erzählst mir deine Idee</h3>
+          <p class="text-text-muted text-sm leading-relaxed">Du teilst mit mir, für wen das Lied ist und welche Botschaft es tragen soll.</p>
+        </div>
       </div>
 
       <!-- Step 2 -->
-      <div class="flex flex-col items-center text-center space-y-5">
-        <div class="relative w-20 h-20 bg-surface rounded-full flex items-center justify-center border-2 border-primary/20 shadow-[0_8px_24px_rgba(59,168,223,0.1)]">
-          <span class="material-symbols-outlined text-primary text-4xl">forum</span>
+      <div class="flex flex-row lg:flex-col items-start lg:items-center gap-5 text-left lg:text-center">
+        <div class="relative w-16 h-16 lg:w-20 lg:h-20 flex-shrink-0 bg-surface rounded-full flex items-center justify-center border-2 border-primary/20 shadow-[0_8px_24px_rgba(59,168,223,0.1)]">
+          <span class="material-symbols-outlined text-primary text-3xl lg:text-4xl">forum</span>
           <span class="absolute -top-2 -right-2 w-7 h-7 bg-accent text-on-surface rounded-full flex items-center justify-center font-bold text-sm shadow-sm">2</span>
         </div>
-        <h3 class="text-lg font-bold font-headline text-on-surface">Wir besprechen die Details persönlich</h3>
-        <p class="text-text-muted text-sm leading-relaxed">Gemeinsam klären wir den Stil, die Stimmung und alles, was dein Lied besonders macht.</p>
+        <div>
+          <h3 class="text-base lg:text-lg font-bold font-headline text-on-surface mb-1">Wir besprechen die Details persönlich</h3>
+          <p class="text-text-muted text-sm leading-relaxed">Gemeinsam klären wir den Stil, die Stimmung und alles, was dein Lied besonders macht.</p>
+        </div>
       </div>
 
       <!-- Step 3 -->
-      <div class="flex flex-col items-center text-center space-y-5">
-        <div class="relative w-20 h-20 bg-surface rounded-full flex items-center justify-center border-2 border-primary/20 shadow-[0_8px_24px_rgba(59,168,223,0.1)]">
-          <span class="material-symbols-outlined text-primary text-4xl">edit_note</span>
+      <div class="flex flex-row lg:flex-col items-start lg:items-center gap-5 text-left lg:text-center">
+        <div class="relative w-16 h-16 lg:w-20 lg:h-20 flex-shrink-0 bg-surface rounded-full flex items-center justify-center border-2 border-primary/20 shadow-[0_8px_24px_rgba(59,168,223,0.1)]">
+          <span class="material-symbols-outlined text-primary text-3xl lg:text-4xl">edit_note</span>
           <span class="absolute -top-2 -right-2 w-7 h-7 bg-accent text-on-surface rounded-full flex items-center justify-center font-bold text-sm shadow-sm">3</span>
         </div>
-        <h3 class="text-lg font-bold font-headline text-on-surface">Ich schreibe und produziere dein Lied</h3>
-        <p class="text-text-muted text-sm leading-relaxed">Mit viel Gefühl und Liebe zum Detail entsteht dein persönlicher Song.</p>
+        <div>
+          <h3 class="text-base lg:text-lg font-bold font-headline text-on-surface mb-1">Ich schreibe und produziere dein Lied</h3>
+          <p class="text-text-muted text-sm leading-relaxed">Mit viel Gefühl und Liebe zum Detail entsteht dein persönlicher Song.</p>
+        </div>
       </div>
 
       <!-- Step 4 -->
-      <div class="flex flex-col items-center text-center space-y-5">
-        <div class="relative w-20 h-20 bg-surface rounded-full flex items-center justify-center border-2 border-primary/20 shadow-[0_8px_24px_rgba(59,168,223,0.1)]">
-          <span class="material-symbols-outlined text-primary text-4xl">headset</span>
+      <div class="flex flex-row lg:flex-col items-start lg:items-center gap-5 text-left lg:text-center">
+        <div class="relative w-16 h-16 lg:w-20 lg:h-20 flex-shrink-0 bg-surface rounded-full flex items-center justify-center border-2 border-primary/20 shadow-[0_8px_24px_rgba(59,168,223,0.1)]">
+          <span class="material-symbols-outlined text-primary text-3xl lg:text-4xl">headset</span>
           <span class="absolute -top-2 -right-2 w-7 h-7 bg-accent text-on-surface rounded-full flex items-center justify-center font-bold text-sm shadow-sm">4</span>
         </div>
-        <h3 class="text-lg font-bold font-headline text-on-surface">Du erhältst dein einzigartiges Lied</h3>
-        <p class="text-text-muted text-sm leading-relaxed">Ein besonderes Geschenk, das berührt und lange in Erinnerung bleibt.</p>
+        <div>
+          <h3 class="text-base lg:text-lg font-bold font-headline text-on-surface mb-1">Du erhältst dein einzigartiges Lied</h3>
+          <p class="text-text-muted text-sm leading-relaxed">Ein besonderes Geschenk, das berührt und lange in Erinnerung bleibt.</p>
+        </div>
       </div>
 
     </div>
@@ -539,7 +547,7 @@
 
     <!-- CTA Header -->
     <div class="text-center mb-16 reveal">
-      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-4">
+      <h2 class="text-xl sm:text-2xl lg:text-4xl font-bold font-headline text-on-surface mb-4">
         ✨ Dein persönliches Lied beginnt mit deiner Idee
       </h2>
     </div>
@@ -571,7 +579,7 @@
 
         <!-- Price -->
         <div class="bg-surface rounded-xl p-5 border border-primary/10 shadow-sm flex items-center justify-center gap-4">
-          <p class="text-sm font-bold text-text-muted uppercase tracking-widest">Preis</p>
+          <p class="text-2xl font-extrabold font-headline text-primary">Preis</p>
           <p class="text-2xl font-extrabold font-headline text-primary">99.- CHF</p>
         </div>
         <p class="text-sm text-text-muted leading-relaxed italic">
@@ -799,7 +807,7 @@
       <div class="lg:w-1/3 space-y-4">
         <img src="assets/Logo_definitiv.png" alt="HörMäuschen Logo" class="h-12 w-auto object-contain" />
         <p class="text-sm leading-relaxed max-w-xs">
-          Handgefertigte Melodien für alle Kapitel des Lebens. Musik, die bleibt.
+          Individuelle Melodien für alle Kapitel des Lebens. Musik, die bleibt.
         </p>
       </div>
 
@@ -840,13 +848,8 @@
 
     </div>
 
-    <div class="border-t border-surface/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-surface/40">
+    <div class="border-t border-surface/10 pt-8 text-xs text-surface/40">
       <p>© 2026 HörMäuschen. Alle Rechte vorbehalten. Sämtliche Audioinhalte, Bilder und Texte sind urheberrechtlich geschützt.</p>
-      <div class="flex items-center gap-2 text-primary/60">
-        <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">favorite</span>
-        <span class="uppercase tracking-[0.2em] font-bold">Handgefertigte Melodien</span>
-        <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">favorite</span>
-      </div>
     </div>
 
   </div>
