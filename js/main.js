@@ -120,7 +120,9 @@ function renderSpotifyEmbed() {
   if (!match) return;
 
   const artistId = match[1];
-  container.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/${artistId}?utm_source=generator&theme=1" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+  // theme=0 is Spotify's neutral dark player. theme=1 tints it from the artist
+  // artwork, which renders red — and being cross-origin it cannot be restyled here.
+  container.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/${artistId}?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
 }
 
 // ============================================================
