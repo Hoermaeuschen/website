@@ -168,6 +168,7 @@
     <a href="#home"       class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Home</a>
     <a href="#hoerprobe"  class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Lieder entdecken</a>
     <a href="#inhalte"    class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Inhalte</a>
+    <a href="#buecher"    class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Bücher</a>
     <a href="#shop"       class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Shop</a>
     <a href="#anfragen"   class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Personalisiertes Lied</a>
     <a href="#ueber-mich" class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Über mich</a>
@@ -197,6 +198,7 @@
       <a href="#home"       data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Home</a>
       <a href="#hoerprobe"  data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Lieder entdecken</a>
       <a href="#inhalte"    data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Inhalte</a>
+      <a href="#buecher"    data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Bücher</a>
       <a href="#shop"       data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Shop</a>
       <a href="#anfragen"   data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Personalisiertes Lied</a>
       <a href="#ueber-mich" data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Über mich</a>
@@ -240,7 +242,7 @@
       </h1>
 
       <p class="text-lg text-text-muted leading-relaxed max-w-md">
-        Liebevolle Kinderlieder, Geschichten, Bücher und kreative Downloads für kleine Ohren, grosse Fantasie und besondere Familienmomente.
+        Liebevolle Kinderlieder, Geschichten, Bücher und kreative Downloads für kleine Ohren, grosse Fantasie und besondere Momente.
       </p>
 
       <!-- Desktop-only buttons -->
@@ -383,6 +385,27 @@
     <div id="youtube-grid" class="flex flex-nowrap overflow-x-auto gap-4 pb-2 reveal">
       <!-- Populated by JS -->
     </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- BÜCHER                                                       -->
+<!-- ============================================================ -->
+<section id="buecher" data-nav-section class="hidden py-24 bg-background">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="text-center mb-14 reveal">
+      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-4">
+        Bücher &amp; Malbücher
+      </h2>
+      <p class="text-text-muted max-w-2xl mx-auto leading-relaxed">
+        Zum Ausmalen, Vorlesen und Entdecken – als Buch und als digitaler Download.
+      </p>
+    </div>
+
+    <!-- Populated by JS from songs.json → books -->
+    <div id="books-list" class="space-y-20"></div>
 
   </div>
 </section>
@@ -633,7 +656,7 @@
       <div class="lg:w-1/3 space-y-4">
         <img src="assets/Logo_definitiv.png" alt="HörMäuschen Logo" class="h-12 w-auto object-contain" />
         <p class="text-sm leading-relaxed max-w-xs">
-          Liebevolle Kinderlieder, Geschichten und kreative Downloads für Familien.
+          Liebevolle Kinderlieder, Geschichten und kreative Downloads.
         </p>
       </div>
 
@@ -645,6 +668,7 @@
             <li><a href="#home"       class="hover:text-surface transition-colors">Home</a></li>
             <li><a href="#hoerprobe"  class="hover:text-surface transition-colors">Lieder entdecken</a></li>
             <li><a href="#inhalte"    class="hover:text-surface transition-colors">Inhalte</a></li>
+            <li><a href="#buecher"    class="hover:text-surface transition-colors">Bücher</a></li>
             <li><a href="#shop"       class="hover:text-surface transition-colors">Shop</a></li>
             <li><a href="#anfragen"   class="hover:text-surface transition-colors">Personalisiertes Lied</a></li>
             <li><a href="#ueber-mich" class="hover:text-surface transition-colors">Über mich</a></li>

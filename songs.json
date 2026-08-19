@@ -20,6 +20,19 @@
     "amazon": "https://music.amazon.de/artists/B0FXB19YY2/h%C3%B6rm%C3%A4uschen",
     "youtubeMusic": "https://music.youtube.com/channel/UCAWzoSha-ATtfZ1EY1itwcg"
   },
+  "books": [
+    {
+      "title": "Pino auf dem Bauernhof",
+      "type": "Malbuch",
+      "cover": "assets/Pino auf dem Bauernhof Cover.png",
+      "headline": "Pinos Malbuch ist da",
+      "description": "Liebevolle Ausmalbilder für Kinder, mit klaren Linien, ruhigen Motiven und kleinen Entdeckungen zum Mitmachen.",
+      "amazon_url": "https://www.amazon.de/dp/B0H9MKL5M3",
+      "etsy_url": "",
+      "payhip_url": "https://payhip.com/b/cD6dw",
+      "visible": true
+    }
+  ],
   "shop_products": [
     {
       "title": "Alle meine Gefühle",

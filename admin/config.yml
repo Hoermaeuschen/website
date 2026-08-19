@@ -42,6 +42,23 @@ collections:
               - { name: amazon,       label: Amazon Music,  widget: string, required: false }
               - { name: youtubeMusic, label: YouTube Music, widget: string, required: false }
 
+          - name: books
+            label: "Bücher & Malbücher"
+            label_singular: Buch
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title,       label: Titel,        widget: string }
+              - { name: type,        label: Typ,          widget: string, hint: "z. B. Malbuch, Bilderbuch" }
+              - { name: cover,       label: Cover-Bild,   widget: image }
+              - { name: headline,    label: Überschrift,  widget: string, required: false, hint: "z. B. Pinos Malbuch ist da" }
+              - { name: description, label: Beschreibung, widget: text, hint: "Leerzeile zwischen zwei Absätzen macht einen neuen Absatz." }
+              - { name: amazon_url,  label: Amazon-Link,  widget: string, required: false, hint: "Leer lassen, wenn es den Link noch nicht gibt — der Button wird dann ausgeblendet." }
+              - { name: etsy_url,    label: Etsy-Link,    widget: string, required: false }
+              - { name: payhip_url,  label: Payhip-Link,  widget: string, required: false }
+              - { name: visible,     label: Sichtbar,     widget: boolean, default: true }
+
           - name: shop_products
             label: Shop-Produkte
             label_singular: Produkt

@@ -6,6 +6,7 @@
 let artistStreaming = {};
 let youtubeVideos  = [];
 let shopProducts   = [];
+let books          = [];
 
 // --- DOM Ready ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -29,12 +30,14 @@ async function loadContent() {
     artistStreaming = data.artist_streaming || {};
     youtubeVideos  = data.youtube_videos   || [];
     shopProducts   = data.shop_products    || [];
+    books          = data.books            || [];
     renderStreamingBar();
     renderFooterStreamingLinks();
     renderYouTubeVideos();
     renderSpotifyEmbed();
     renderPlatformLinks();
     renderShopProducts();
+    renderBooks();
   } catch (e) {
     console.error('Fehler beim Laden:', e);
   }
@@ -142,6 +145,64 @@ function renderPlatformLinks() {
     youtubeLink.href = artistStreaming.youtube;
     youtubeLink.classList.remove('hidden');
   }
+}
+
+// ============================================================
+// BOOKS — feature rows (cover left, text right)
+// ============================================================
+
+function renderBooks() {
+  const section = document.getElementById('buecher');
+  const list    = document.getElementById('books-list');
+  if (!section || !list) return;
+
+  const visible = books.filter(b => b.visible === true && b.title && b.cover);
+  if (!visible.length) return;
+
+  const stores = [
+    { key: 'amazon_url', label: 'Zum Malbuch auf Amazon', icon: 'shopping_bag', primary: true },
+    { key: 'etsy_url',   label: 'Zum Malbuch auf Etsy',   icon: 'storefront' },
+    { key: 'payhip_url', label: 'Zum Download auf Payhip', icon: 'download' },
+  ];
+
+  list.innerHTML = visible.map(b => {
+    const paragraphs = (b.description || '')
+      .split(/\n\s*\n/)
+      .map(t => t.trim())
+      .filter(Boolean)
+      .map(t => `<p>${t}</p>`)
+      .join('');
+
+    const buttons = stores
+      .filter(s => b[s.key])
+      .map(s => `
+        <a href="${b[s.key]}" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 ${
+             s.primary
+               ? 'bg-primary text-on-primary hover:bg-primary-dark hover:scale-105 shadow-lg shadow-primary/25'
+               : 'border-2 border-primary text-primary hover:bg-primary hover:text-on-primary'
+           }">
+          <span class="material-symbols-outlined text-xl">${s.icon}</span>
+          ${s.label}
+        </a>`)
+      .join('');
+
+    return `
+      <article class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+        <div class="w-full lg:w-2/5 flex-shrink-0">
+          <img src="${b.cover}" alt="${b.title}" loading="lazy"
+               class="w-full rounded-2xl shadow-2xl object-cover" />
+        </div>
+        <div class="w-full lg:flex-1 space-y-5">
+          ${b.type ? `<p class="text-xs font-bold text-primary uppercase tracking-widest">${b.type}</p>` : ''}
+          <h3 class="text-2xl lg:text-3xl font-bold font-headline text-on-surface">${b.headline || b.title}</h3>
+          <div class="space-y-4 text-lg text-text-muted leading-relaxed">${paragraphs}</div>
+          ${buttons ? `<div class="flex flex-wrap gap-3 pt-2">${buttons}</div>` : ''}
+        </div>
+      </article>`;
+  }).join('');
+
+  section.classList.remove('hidden');
 }
 
 // ============================================================
