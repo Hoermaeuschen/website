@@ -35,7 +35,7 @@
       "cover": "assets/song covers/Der Traumzug-Cover.jpg",
       "price": "CHF 1.50",
       "payhip_url": "https://payhip.com/b/XXXXX",
-      "visible": true
+      "visible": false
     },
     {
       "title": "Heut ist ein guter Tag",
@@ -43,14 +43,14 @@
       "cover": "assets/song covers/Heut ist ein guter Tag-Cover.jpg",
       "price": "CHF 1.50",
       "payhip_url": "https://payhip.com/b/XXXXX",
-      "visible": true
+      "visible": false
     },
     {
       "title": "So wie du bist",
       "type": "Kinderlied",
       "cover": "assets/song covers/So wie du bist-Cover.jpg",
-      "price": "CHF 1.50",
-      "payhip_url": "https://payhip.com/b/XXXXX",
+      "price": "CHF 2.60",
+      "payhip_url": "https://payhip.com/b/r4x7u",
       "visible": true
     }
   ]
