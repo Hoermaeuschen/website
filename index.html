@@ -166,7 +166,7 @@
 
   <nav class="flex flex-col gap-1 px-4 py-6 flex-1">
     <a href="#home"       class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Home</a>
-    <a href="#hoerprobe"  class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Reinhören</a>
+    <a href="#hoerprobe"  class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Lieder entdecken</a>
     <a href="#inhalte"    class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Inhalte</a>
     <a href="#shop"       class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Shop</a>
     <a href="#anfragen"   class="px-4 py-3 rounded-lg text-on-surface font-headline font-semibold hover:bg-surface-container hover:text-primary transition-colors">Personalisiertes Lied</a>
@@ -195,7 +195,7 @@
     <!-- Desktop Links -->
     <div class="hidden md:flex items-center gap-7">
       <a href="#home"       data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Home</a>
-      <a href="#hoerprobe"  data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Reinhören</a>
+      <a href="#hoerprobe"  data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Lieder entdecken</a>
       <a href="#inhalte"    data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Inhalte</a>
       <a href="#shop"       data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Shop</a>
       <a href="#anfragen"   data-nav-link class="text-text-muted hover:text-primary font-headline font-semibold text-sm tracking-tight transition-colors">Personalisiertes Lied</a>
@@ -259,7 +259,7 @@
 
     <!-- Right: Banner image -->
     <div class="flex items-center justify-center lg:justify-end">
-      <img src="assets/banner.png"
+      <img src="assets/banner.jpg"
            alt="HörMäuschen – Kinderlieder, Geschichten und Malspass"
            class="w-full max-w-md lg:max-w-lg rounded-2xl shadow-2xl object-cover" />
     </div>
@@ -293,48 +293,6 @@
 </section>
 
 <!-- ============================================================ -->
-<!-- JETZT REINHÖREN                                              -->
-<!-- ============================================================ -->
-<section id="hoerprobe" data-nav-section class="py-24 bg-background">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
-
-    <div class="text-center mb-10 reveal">
-      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-3">
-        Jetzt reinhören
-      </h2>
-      <p class="text-text-muted max-w-xl mx-auto leading-relaxed">
-        Kinderlieder und gefühlvolle Songs direkt hier anhören.
-      </p>
-    </div>
-
-    <!-- Spotify embed — populated by JS -->
-    <div id="spotify-embed-container" class="reveal mb-8"></div>
-
-    <!-- Platform link buttons -->
-    <div class="flex flex-wrap justify-center gap-3 reveal mb-12">
-      <a id="link-spotify" href="#" target="_blank" rel="noopener noreferrer"
-         class="hidden inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm text-white transition-all duration-200 hover:scale-105"
-         style="background-color: #1DB954;">
-        <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="white" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-        Auf Spotify
-      </a>
-      <a id="link-youtube" href="#" target="_blank" rel="noopener noreferrer"
-         class="hidden inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm text-white transition-all duration-200 hover:scale-105"
-         style="background-color: #FF0000;">
-        <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="white" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        Auf YouTube
-      </a>
-    </div>
-
-    <!-- YouTube grid — populated by JS -->
-    <div id="youtube-grid" class="flex flex-nowrap overflow-x-auto gap-4 pb-2 reveal">
-      <!-- Populated by JS -->
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================ -->
 <!-- INHALTE                                                      -->
 <!-- ============================================================ -->
 <section id="inhalte" data-nav-section class="py-24 bg-surface">
@@ -345,7 +303,7 @@
         Lieder, Geschichten und Malspass
       </h2>
       <p class="text-text-muted max-w-2xl mx-auto leading-relaxed">
-        HörMäuschen verbindet Musik, Fantasie und kreative Ideen für Kinder – zum Zuhören, Vorlesen, Ausmalen und Entdecken.
+        HörMäuschen verbindet Musik, Fantasie und kreative Ideen für Kinder. Zum Zuhören, Vorlesen, Ausmalen und Entdecken.
       </p>
     </div>
 
@@ -362,7 +320,7 @@
         </p>
         <a href="#hoerprobe"
            class="mt-auto inline-flex items-center gap-1 text-primary font-bold text-sm hover:gap-2 transition-all">
-          Reinhören
+          Lieder entdecken
           <span class="material-symbols-outlined text-base">arrow_forward</span>
         </a>
       </div>
@@ -404,9 +362,51 @@
 </section>
 
 <!-- ============================================================ -->
+<!-- LIEDER ENTDECKEN                                             -->
+<!-- ============================================================ -->
+<section id="hoerprobe" data-nav-section class="py-24 bg-background">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="text-center mb-10 reveal">
+      <h2 class="text-3xl lg:text-4xl font-bold font-headline text-on-surface mb-3">
+        Lieder entdecken
+      </h2>
+      <p class="text-text-muted max-w-xl mx-auto leading-relaxed">
+        Kinderlieder und gefühlvolle Songs direkt hier anhören.
+      </p>
+    </div>
+
+    <!-- Spotify embed — populated by JS -->
+    <div id="spotify-embed-container" class="reveal mb-8"></div>
+
+    <!-- Platform link buttons -->
+    <div class="flex flex-wrap justify-center gap-3 reveal mb-12">
+      <a id="link-spotify" href="#" target="_blank" rel="noopener noreferrer"
+         class="hidden inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm text-white transition-all duration-200 hover:scale-105"
+         style="background-color: #1DB954;">
+        <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="white" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Auf Spotify
+      </a>
+      <a id="link-youtube" href="#" target="_blank" rel="noopener noreferrer"
+         class="hidden inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm text-white transition-all duration-200 hover:scale-105"
+         style="background-color: #FF0000;">
+        <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="white" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        Auf YouTube
+      </a>
+    </div>
+
+    <!-- YouTube grid — populated by JS -->
+    <div id="youtube-grid" class="flex flex-nowrap overflow-x-auto gap-4 pb-2 reveal">
+      <!-- Populated by JS -->
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
 <!-- SHOP                                                         -->
 <!-- ============================================================ -->
-<section id="shop" data-nav-section class="py-24 bg-background">
+<section id="shop" data-nav-section class="py-24 bg-surface">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
     <div class="text-center mb-14 reveal">
@@ -418,17 +418,12 @@
       </p>
     </div>
 
-    <!-- Shop grid — populated by JS -->
-    <div id="shop-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 reveal">
-      <!-- Populated by JS from songs.json → shop_products -->
-    </div>
-
-    <!-- All products CTA -->
-    <div class="text-center mt-12 reveal">
+    <!-- Payhip store CTA -->
+    <div class="text-center reveal">
       <a href="https://payhip.com/HoerMaeuschen" target="_blank" rel="noopener noreferrer"
          class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-base hover:bg-primary-dark hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25">
         <span class="material-symbols-outlined text-xl">store</span>
-        Alle Produkte im Shop
+        Zum Shop
       </a>
     </div>
 
@@ -669,7 +664,7 @@
           <p class="font-bold text-surface/40 uppercase tracking-widest text-xs mb-4">Navigation</p>
           <ul class="space-y-2.5">
             <li><a href="#home"       class="hover:text-surface transition-colors">Home</a></li>
-            <li><a href="#hoerprobe"  class="hover:text-surface transition-colors">Reinhören</a></li>
+            <li><a href="#hoerprobe"  class="hover:text-surface transition-colors">Lieder entdecken</a></li>
             <li><a href="#inhalte"    class="hover:text-surface transition-colors">Inhalte</a></li>
             <li><a href="#shop"       class="hover:text-surface transition-colors">Shop</a></li>
             <li><a href="#anfragen"   class="hover:text-surface transition-colors">Personalisiertes Lied</a></li>
