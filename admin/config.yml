@@ -41,3 +41,17 @@ collections:
               - { name: apple,        label: Apple Music,   widget: string, required: false }
               - { name: amazon,       label: Amazon Music,  widget: string, required: false }
               - { name: youtubeMusic, label: YouTube Music, widget: string, required: false }
+
+          - name: shop_products
+            label: Shop-Produkte
+            label_singular: Produkt
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title,      label: Titel,       widget: string }
+              - { name: type,       label: Typ,         widget: string, hint: "z. B. Kinderlied, Ausmalbilder, Geschichte" }
+              - { name: cover,      label: Cover-Bild,  widget: image,  required: false }
+              - { name: price,      label: Preis,       widget: string, hint: "z. B. CHF 1.50" }
+              - { name: payhip_url, label: Payhip-Link, widget: string, hint: "https://payhip.com/b/..." }
+              - { name: visible,    label: Sichtbar,    widget: boolean, default: true }

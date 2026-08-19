@@ -19,5 +19,39 @@
     "apple": "https://music.apple.com/us/artist/h%C3%B6rm%C3%A4uschen/1847819275",
     "amazon": "https://music.amazon.de/artists/B0FXB19YY2/h%C3%B6rm%C3%A4uschen",
     "youtubeMusic": "https://music.youtube.com/channel/UCAWzoSha-ATtfZ1EY1itwcg"
-  }
+  },
+  "shop_products": [
+    {
+      "title": "Alle meine Gefühle",
+      "type": "Kinderlied",
+      "cover": "assets/song covers/Alle meine Gefühle-Cover.jpg",
+      "price": "CHF 1.50",
+      "payhip_url": "https://payhip.com/b/XXXXX",
+      "visible": true
+    },
+    {
+      "title": "Der Traumzug",
+      "type": "Kinderlied",
+      "cover": "assets/song covers/Der Traumzug-Cover.jpg",
+      "price": "CHF 1.50",
+      "payhip_url": "https://payhip.com/b/XXXXX",
+      "visible": true
+    },
+    {
+      "title": "Heut ist ein guter Tag",
+      "type": "Kinderlied",
+      "cover": "assets/song covers/Heut ist ein guter Tag-Cover.jpg",
+      "price": "CHF 1.50",
+      "payhip_url": "https://payhip.com/b/XXXXX",
+      "visible": true
+    },
+    {
+      "title": "So wie du bist",
+      "type": "Kinderlied",
+      "cover": "assets/song covers/So wie du bist-Cover.jpg",
+      "price": "CHF 1.50",
+      "payhip_url": "https://payhip.com/b/XXXXX",
+      "visible": true
+    }
+  ]
 }

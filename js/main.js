@@ -5,6 +5,7 @@
 // --- State ---
 let artistStreaming = {};
 let youtubeVideos  = [];
+let shopProducts   = [];
 
 // --- DOM Ready ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,9 +28,13 @@ async function loadContent() {
     const data = await res.json();
     artistStreaming = data.artist_streaming || {};
     youtubeVideos  = data.youtube_videos   || [];
+    shopProducts   = data.shop_products    || [];
     renderStreamingBar();
     renderFooterStreamingLinks();
     renderYouTubeVideos();
+    renderSpotifyEmbed();
+    renderPlatformLinks();
+    renderShopProducts();
   } catch (e) {
     console.error('Fehler beim Laden:', e);
   }
@@ -101,6 +106,75 @@ function renderFooterStreamingLinks() {
     .filter(p => artistStreaming[p.key])
     .map(p => `<li><a href="${artistStreaming[p.key]}" target="_blank" rel="noopener noreferrer" class="hover:text-surface transition-colors">${p.label}</a></li>`)
     .join('');
+}
+
+// ============================================================
+// SPOTIFY EMBED
+// ============================================================
+
+function renderSpotifyEmbed() {
+  const container = document.getElementById('spotify-embed-container');
+  if (!container || !artistStreaming.spotify) return;
+
+  const match = artistStreaming.spotify.match(/artist\/([a-zA-Z0-9]+)/);
+  if (!match) return;
+
+  const artistId = match[1];
+  container.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/${artistId}?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+}
+
+// ============================================================
+// PLATFORM LINKS
+// ============================================================
+
+function renderPlatformLinks() {
+  const spotifyLink  = document.getElementById('link-spotify');
+  const youtubeLink  = document.getElementById('link-youtube');
+
+  if (spotifyLink && artistStreaming.spotify) {
+    spotifyLink.href = artistStreaming.spotify;
+    spotifyLink.classList.remove('hidden');
+  }
+
+  if (youtubeLink && artistStreaming.youtube) {
+    youtubeLink.href = artistStreaming.youtube;
+    youtubeLink.classList.remove('hidden');
+  }
+}
+
+// ============================================================
+// SHOP PRODUCTS
+// ============================================================
+
+function renderShopProducts() {
+  const grid = document.getElementById('shop-grid');
+  if (!grid) return;
+
+  const visible = shopProducts.filter(p => p.visible === true && p.payhip_url && !p.payhip_url.includes('XXXXX'));
+
+  if (!visible.length) {
+    grid.innerHTML = `<p class="col-span-full text-text-muted text-center py-12 italic">Produkte werden bald hinzugefügt.</p>`;
+    return;
+  }
+
+  grid.innerHTML = visible.map(p => `
+    <a href="${p.payhip_url}" target="_blank" rel="noopener noreferrer"
+       class="group bg-surface rounded-2xl overflow-hidden shadow-md border border-surface-container-high hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+      <div class="aspect-square bg-surface-container overflow-hidden">
+        ${p.cover
+          ? `<img src="${p.cover}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />`
+          : `<div class="w-full h-full flex items-center justify-center"><span class="material-symbols-outlined text-text-muted text-5xl">music_note</span></div>`
+        }
+      </div>
+      <div class="p-4 flex flex-col gap-2 flex-1">
+        <p class="text-xs font-bold text-primary uppercase tracking-widest">${p.type || ''}</p>
+        <p class="font-bold font-headline text-on-surface text-sm leading-tight">${p.title}</p>
+        <div class="mt-auto flex items-center justify-between pt-2">
+          <span class="font-bold text-on-surface">${p.price || ''}</span>
+          <span class="text-xs bg-primary text-on-primary px-3 py-1.5 rounded-full font-bold">Kaufen</span>
+        </div>
+      </div>
+    </a>`).join('');
 }
 
 // ============================================================
@@ -200,7 +274,7 @@ function initContactForm() {
         form.innerHTML = `
           <div class="flex flex-col items-center text-center py-16 gap-4">
             <span class="material-symbols-outlined text-primary text-6xl" style="font-variation-settings:'FILL' 1">check_circle</span>
-            <h3 class="text-2xl font-bold font-headline text-on-surface">Vielen Dank für deine Anfrage! 💛</h3>
+            <h3 class="text-2xl font-bold font-headline text-on-surface">Vielen Dank für deine Anfrage!</h3>
             <p class="text-text-muted max-w-sm leading-relaxed">
               Ich freue mich darauf, deine Geschichte in ein ganz besonderes Lied zu verwandeln.
               Ich melde mich bald persönlich bei dir.
