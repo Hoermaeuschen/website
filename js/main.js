@@ -194,7 +194,7 @@ function renderBooks() {
                class="w-full rounded-2xl shadow-2xl object-cover" />
         </div>
         <div class="w-full lg:flex-1 space-y-5 lg:order-1">
-          <h3 class="text-2xl lg:text-3xl font-bold font-headline text-on-surface">${b.headline || b.title}</h3>
+          <h3 class="text-xl font-bold font-headline text-on-surface">${b.headline || b.title}</h3>
           <div class="space-y-4 text-lg text-text-muted leading-relaxed">${paragraphs}</div>
           ${buttons ? `<div class="flex flex-wrap gap-3 pt-2">${buttons}</div>` : ''}
         </div>
