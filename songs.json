@@ -56,6 +56,14 @@
       "price": "CHF 2.60",
       "payhip_url": "https://payhip.com/b/r4x7u",
       "visible": true
+    },
+    {
+      "title": "5 zauberhafte Schlaflieder",
+      "type": "Schlafliederbundle",
+      "cover": "/assets/5_zauberhafte_Schlaflieder_-_Bundle-Cover_v1.png",
+      "price": "9.90",
+      "payhip_url": "https://payhip.com/b/VURKC",
+      "visible": true
     }
   ]
 }
