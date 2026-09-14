@@ -42,26 +42,18 @@
       "visible": true
     },
     {
-      "title": "Der Traumzug",
-      "type": "Kinderlied",
-      "cover": "assets/song covers/Der Traumzug-Cover.jpg",
-      "price": "CHF 1.50",
-      "payhip_url": "https://payhip.com/b/XXXXX",
-      "visible": false
-    },
-    {
-      "title": "Heut ist ein guter Tag",
-      "type": "Kinderlied",
-      "cover": "assets/song covers/Heut ist ein guter Tag-Cover.jpg",
-      "price": "CHF 1.50",
-      "payhip_url": "https://payhip.com/b/XXXXX",
-      "visible": false
+      "title": "Pino auf dem Bauernhof - kostenloses Probepaket",
+      "type": "Ausmalbilder",
+      "cover": "/assets/Pino_kostenloses_Probepaket_Cover.png",
+      "price": "0",
+      "payhip_url": "https://payhip.com/b/nao0J",
+      "visible": true
     },
     {
       "title": "So wie du bist",
       "type": "Kinderlied",
-      "cover": "assets/song covers/So wie du bist-Cover.jpg",
-      "price": "CHF 2.60",
+      "cover": "/assets/song covers/So wie du bist-Cover.jpg",
+      "price": "2.60",
       "payhip_url": "https://payhip.com/b/r4x7u",
       "visible": true
     }
